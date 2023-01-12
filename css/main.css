@@ -18,14 +18,14 @@ header>div{
     margin: 0 auto;
 }
 
-h1 {
+#terminal {
     margin: 0;
     font-family: 'FiraCode NF';
     margin: 0 50px;
     font-size: 16px;
 }
 
-h1::after {
+#terminal::after {
     content: attr(data-end);
     color: #ee8c16;
     animation: typing-blink 1.5s linear 0s infinite;
@@ -213,13 +213,13 @@ img {
 }
 
 @media only screen and (min-width: 561px) {
-    h1 {
+    #terminal {
         font-size: 20px;
     }
 }
 
 @media only screen and (min-width: 1025px) {
-    h1 {
+    #terminal {
         font-size: 30px;
     }
 }
