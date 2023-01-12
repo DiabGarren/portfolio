@@ -21,8 +21,8 @@ header>div{
 #terminal {
     margin: 0;
     font-family: 'FiraCode NF';
-    margin: 0 50px;
-    font-size: 16px;
+    padding: 10px 0;
+    font-size: 14px;
 }
 
 #terminal::after {
@@ -215,11 +215,13 @@ img {
 @media only screen and (min-width: 561px) {
     #terminal {
         font-size: 20px;
+        margin: 0 50px;
     }
 }
 
 @media only screen and (min-width: 1025px) {
     #terminal {
+        padding: 15px;
         font-size: 27px;
     }
 }
