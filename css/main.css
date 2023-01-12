@@ -20,7 +20,7 @@ header>div{
 
 #terminal {
     margin: 0;
-    font-family: 'FiraCode NF';
+    font-family: 'Fira Code', monospace;
     padding: 10px 0;
     font-size: 14px;
 }
