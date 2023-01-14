@@ -54,3 +54,15 @@ if (terminal == null) {} else {
     typeTerminal();
 
 }
+
+const letterM = document.querySelector("#m-letter");
+const explode = () => {
+    let datalist = letterM.children[0].getAttribute("index");
+    if (letterM.children[0].getAttribute("index") == "0") {
+        // letterM.children[0].getAttribute("datalist") = "1";
+        console.log("true");
+    } else {
+        letterM.children[0].getAttribute("datalist") = "0";
+    }
+};
+letterM.addEventListener("click", explode);
