@@ -1,7 +1,9 @@
 let greeting = "hello there";
-let welcome = "welcome to my project portfolio"
-let hintText = "click a letter to view a project";
+let welcome = "this is my project portfolio"
+let hintText = "click a letter to begin";
 let clear = "cls";
+
+const messages = ["hello there", "this is my project portfolio", "click a letter to begin"];
 
 const terminal = document.querySelector("#terminal");
 if (terminal == null) {} else {
@@ -12,57 +14,66 @@ if (terminal == null) {} else {
     };
 
     async function typeTerminal() {
-        while (true){
+        while (true) {
             await wait(2000);
-            for (let i = 0; i < greeting.length; i++) {
-                terminal.innerHTML += greeting[i];
-    
-                await wait(Math.floor(Math.random() * (275 - 75 + 1) + 75));
-            }
-    
-            terminal.innerHTML += "<br>garren-diab>";
-            await wait(1500);
 
-            for (let i = 0; i < welcome.length; i++) {
-                terminal.innerHTML += welcome[i];
-    
-                await wait(Math.floor(Math.random() * (275 - 75 + 1) + 75));
+            for (let j = 0; j < messages.length; j++) {
+
+                for (let i = 0; i < messages[j].length; i++) {
+                    terminal.innerHTML += messages[j][i];
+
+                    await wait(Math.floor(Math.random() * (275 - 75 + 1) + 75));
+                }
+                await wait(1500);
+
+                for (let i = terminal.innerHTML.length; i > 13; i--) {
+                    terminal.innerHTML = terminal.innerHTML.substring(0, i);
+
+                    await wait(Math.floor(Math.random() * (100 - 45 + 1) + 45));
+                }
             }
-    
-            terminal.innerHTML += "<br>garren-diab>";
-            await wait(3000);
-    
-            for (let i = 0; i < hintText.length; i++) {
-                terminal.innerHTML += hintText[i];
-    
-                await wait(Math.floor(Math.random() * (275 - 75 + 1) + 75));
-            }
-    
-            terminal.innerHTML += "<br>garren-diab>";
-            await wait(5000);
-    
-            for (let i = 0; i < clear.length; i++) {
-                terminal.innerHTML += clear[i];
-    
-                await wait(Math.floor(Math.random() * (275 - 75 + 1) + 75));
-            }
-    
-            await wait(3000);
-            terminal.innerHTML = "garren-diab>";
         }
     };
     typeTerminal();
 
 }
 
-const letterM = document.querySelector("#m-letter");
-const explode = () => {
-    let datalist = letterM.children[0].getAttribute("index");
-    if (letterM.children[0].getAttribute("index") == "0") {
-        // letterM.children[0].getAttribute("datalist") = "1";
-        console.log("true");
-    } else {
-        letterM.children[0].getAttribute("datalist") = "0";
+let letters = ["#m-letter", "#y-letter", "#p-letter", "#r-letter", "#o-letter", "#j-letter", "#e-letter", "#c-letter", "#t-letter", "#s-letter"];
+
+const explode = (e) => {
+    for (let i = 0; i < letters.length; i++) {
+        let letter = document.querySelector(letters[i]).children[0];
+        if (letter == e) {
+            if (e.getAttribute("index") == "0") {
+                e.setAttribute("index", "1");
+            }
+        } else {
+            if (letter.getAttribute("index") != "0") {
+                letter.setAttribute("index", "0");
+            }
+        }
+
     }
+
 };
-letterM.addEventListener("click", explode);
+
+
+async function explodeHandler(e) {
+    let letter = e.target.parentNode;
+    if (e.target.classList.contains("letter-inner")) {
+        letter = e.target;
+    }
+    explode(letter);
+}
+
+
+document.querySelector("#m-letter").addEventListener("click", explodeHandler);
+document.querySelector("#y-letter").addEventListener("click", explodeHandler);
+document.querySelector("#p-letter").addEventListener("click", explodeHandler);
+document.querySelector("#r-letter").addEventListener("click", explodeHandler);
+document.querySelector("#o-letter").addEventListener("click", explodeHandler);
+document.querySelector("#j-letter").addEventListener("click", explodeHandler);
+document.querySelector("#e-letter").addEventListener("click", explodeHandler);
+document.querySelector("#c-letter").addEventListener("click", explodeHandler);
+document.querySelector("#t-letter").addEventListener("click", explodeHandler);
+document.querySelector("#s-letter").addEventListener("click", explodeHandler);

@@ -61,7 +61,7 @@ img {
     grid-template-rows: 1fr 1fr;
 }
 
-.letter-inner:hover {
+.letter-inner[index="1"] {
     background-color: white;
     border-radius: calc(100vw*0.03);
     box-shadow: 0 0 5px 5px #fff,
@@ -74,15 +74,15 @@ img {
     transform: translate(calc(100vw*-.02), calc(100vw*-.04)) rotate(30deg);
 }
 
-.letter-inner:hover>.top-right {
+.letter-inner[index="1"]>.top-right {
     transform: translate(calc(100vw*.02), calc(100vw*-.04)) rotate(-30deg);
 }
 
-.letter-inner:hover>.bot-left {
+.letter-inner[index="1"]>.bot-left {
     transform: translate(calc(100vw*-.02), calc(100vw*.04)) rotate(-30deg);
 }
 
-.letter-inner:hover>.bot-right {
+.letter-inner[index="1"]>.bot-right {
     transform: translate(calc(100vw*.02), calc(100vw*.04)) rotate(30deg);
 }
 
