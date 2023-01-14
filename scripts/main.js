@@ -46,6 +46,10 @@ const explode = (e) => {
         if (letter == e) {
             if (e.getAttribute("index") == "0") {
                 e.setAttribute("index", "1");
+            } else {
+                if (e.getAttribute("index") == "1") {
+                    e.setAttribute("index", "2");
+                }
             }
         } else {
             if (letter.getAttribute("index") != "0") {

@@ -13,10 +13,11 @@ header {
     color: #ed9012;
 }
 
-header>div{
+header>div {
     max-width: 1600px;
     margin: 0 auto;
 }
+
 
 #terminal {
     margin: 0;
@@ -68,6 +69,24 @@ img {
         0 0 30px calc(100vw*.01) #0685a9,
         0 0 40px calc(100vw*.02) #03158d,
         0 0 50px calc(100vw*.03) #430ead;
+}
+
+.letter-inner[index="2"] {
+    position: absolute;
+    background-color: white;
+    border-radius: calc(100vw*0.03);
+    box-shadow: 0 0 5px 5px #fff,
+        0 0 30px calc(100vw*.01) #0685a9,
+        0 0 40px calc(100vw*.02) #03158d,
+        0 0 50px calc(100vw*.03) #430ead;
+    animation: zoom 1.5s linear 1;
+}
+
+.letter-inner[index="2"]>.top-left,
+.letter-inner[index="2"]>.top-right,
+.letter-inner[index="2"]>.bot-left,
+.letter-inner[index="2"]>.bot-right {
+    display: none;
 }
 
 .letter-inner[index="1"]>.top-left {
@@ -173,6 +192,23 @@ img {
 
     80% {
         opacity: 1;
+    }
+}
+
+@keyframes zoom {
+    0% {
+        position: absolute;
+        left: 50%;
+        width: 1vw;
+        height: 1vh;
+    }
+
+    100% {
+        position: absolute;
+        left: 50%;
+        translate: -50vw -50vh;
+        width: 100vw;
+        height: 100vh;
     }
 }
 
