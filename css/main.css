@@ -199,13 +199,15 @@ img {
     0% {
         position: absolute;
         left: 50%;
+        top: 50%;
         width: 1vw;
         height: 1vh;
     }
-
+    
     100% {
         position: absolute;
         left: 50%;
+        top: 50%;
         translate: -50vw -50vh;
         width: 100vw;
         height: 100vh;
