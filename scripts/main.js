@@ -37,12 +37,12 @@ async function loadLetters(letterContainer) {
     let length = letterContainer.length - 1;
 
     for (let i = 0; i < length; i += 2) {
-        await wait(Math.floor(Math.random() * (300 - 150 + 1) + 150));
+        await wait(Math.floor(Math.random() * (150 - 50 + 1) + 50));
         for (let j = 0; j < positions.length; j++) {
             document.querySelector(letterContainer[i]).children[0].children[j].setAttribute("src", `images/${letterContainer[i][1]}-${positions[j]}.webp`);
-            await wait(Math.floor(Math.random() * (75 - 50 + 1) + 50));
+            await wait(Math.floor(Math.random() * (75 - 25 + 1) + 25));
             document.querySelector(letterContainer[length - i]).children[0].children[3 - j].setAttribute("src", `images/${letterContainer[length - i][1]}-${positions[3-j]}.webp`);
-            await wait(Math.floor(Math.random() * (100 - 50 + 1) + 50));
+            await wait(Math.floor(Math.random() * (100 - 25 + 1) + 25));
         }
     }
 };
