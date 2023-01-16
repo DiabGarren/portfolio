@@ -1,6 +1,12 @@
 const messages = ["hello there", "this is my project portfolio", "click a letter to begin"];
 const terminal = document.querySelector("#terminal");
 
+const letters = ["#m-letter", "#y-letter", "#p-letter", "#r-letter", "#o-letter", "#j-letter", "#e-letter", "#c-letter", "#t-letter", "#s-letter"];
+const positions = ["topleft", "topright", "botleft", "botright"];
+
+const sites = ["maeve-human-portfolio", "bountiful-foods"]
+let site = null;
+
 const wait = (milliseconds) => {
     return new Promise(resolve => {
         setTimeout(resolve, milliseconds);
@@ -29,8 +35,6 @@ async function typeTerminal() {
     }
 };
 
-let letters = ["#m-letter", "#y-letter", "#p-letter", "#r-letter", "#o-letter", "#j-letter", "#e-letter", "#c-letter", "#t-letter", "#s-letter"];
-let positions = ["topleft", "topright", "botleft", "botright"];
 
 async function loadLetters(letterContainer) {
     let length = letterContainer.length - 1;
@@ -72,30 +76,31 @@ async function explode(e, dest) {
     for (let i = 0; i < letters.length; i++) {
         let letter = document.querySelector(letters[i]).children[0];
         if (letter == e) {
+            switch (dest) {
+                case "m":
+                    site = 0;
+                    break;
+                case "y":
+                    site = 1;
+                    break;
+            }
             if (e.getAttribute("index") == "0") {
-                switch (dest) {
-                    case "m":
-                        e.setAttribute("style", `background-image: url('images/maeve-human-portfolio-thumbnail${size}.webp')`);
-                        break;
-                }
+                e.setAttribute("style", `background-image: url('images/${sites[site]}-thumbnail${size}.webp')`);
                 e.setAttribute("index", "1");
             } else {
                 if (e.getAttribute("index") == "1") {
-                    switch (dest) {
-                        case "m":
-                            e.setAttribute("style", `background-image: url('images/maeve-human-portfolio${size}.webp')`);
-                            break;
+
+                    if (site != null) {
+                        e.setAttribute("style", `background-image: url('images/${sites[site]}${size}.webp')`);
                     }
                     e.setAttribute("index", "2");
 
                     await wait(1200);
-                    switch (dest) {
-                        case "m":
-                            window.location.href = "maeve-human-portfolio/";
-                            break;
-                    }
+                    window.location.href = `${sites[site]}/`;
+
                     await wait(300);
                     e.setAttribute("index", "0");
+                    
                     letter.setAttribute("style", "background-image: ");
                 }
             }
