@@ -1,18 +1,15 @@
-let greeting = "hello there";
-let welcome = "this is my project portfolio"
-let hintText = "click a letter to begin";
-let clear = "cls";
-
 const messages = ["hello there", "this is my project portfolio", "click a letter to begin"];
 
-const terminal = document.querySelector("#terminal");
-if (terminal == null) {} else {
-    const wait = (milliseconds) => {
-        return new Promise(resolve => {
-            setTimeout(resolve, milliseconds);
-        });
-    };
+console.log(window.innerWidth);
 
+const terminal = document.querySelector("#terminal");
+const wait = (milliseconds) => {
+    return new Promise(resolve => {
+        setTimeout(resolve, milliseconds);
+    });
+};
+
+if (terminal == null) {} else {
     async function typeTerminal() {
         while (true) {
             await wait(2000);
@@ -40,7 +37,7 @@ if (terminal == null) {} else {
 
 let letters = ["#m-letter", "#y-letter", "#p-letter", "#r-letter", "#o-letter", "#j-letter", "#e-letter", "#c-letter", "#t-letter", "#s-letter"];
 
-const explode = (e) => {
+async function explode(e) {
     for (let i = 0; i < letters.length; i++) {
         let letter = document.querySelector(letters[i]).children[0];
         if (letter == e) {
@@ -49,6 +46,9 @@ const explode = (e) => {
             } else {
                 if (e.getAttribute("index") == "1") {
                     e.setAttribute("index", "2");
+
+                    await wait(1500);
+                    e.setAttribute("index", "0");
                 }
             }
         } else {
@@ -68,7 +68,7 @@ async function explodeHandler(e) {
         letter = e.target;
     }
     explode(letter);
-}
+};
 
 
 document.querySelector("#m-letter").addEventListener("click", explodeHandler);
@@ -81,3 +81,19 @@ document.querySelector("#e-letter").addEventListener("click", explodeHandler);
 document.querySelector("#c-letter").addEventListener("click", explodeHandler);
 document.querySelector("#t-letter").addEventListener("click", explodeHandler);
 document.querySelector("#s-letter").addEventListener("click", explodeHandler);
+
+window.addEventListener("click", (e) => {
+    switch (e.target.className) {
+        case "letter-inner":
+        case "top-left":
+        case "top-right":
+        case "bot-left":
+        case "bot-right":
+            break;
+        default:
+            for (let i = 0; i < letters.length; i++) {
+                document.querySelector(letters[i]).children[0].setAttribute("index", "0");
+            }
+            break;
+    }
+});
