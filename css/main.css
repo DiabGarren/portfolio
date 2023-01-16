@@ -77,6 +77,9 @@ img {
 .letter-inner[index="2"] {
     position: absolute;
     background-color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     border-radius: calc(100vw*0.03);
     box-shadow: 0 0 5px 5px #fff,
         0 0 30px calc(100vw*.01) #0685a9,

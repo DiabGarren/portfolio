@@ -32,24 +32,24 @@ async function typeTerminal() {
 let letters = ["#m-letter", "#y-letter", "#p-letter", "#r-letter", "#o-letter", "#j-letter", "#e-letter", "#c-letter", "#t-letter", "#s-letter"];
 let positions = ["topleft", "topright", "botleft", "botright"];
 
-async function reloadLetters(letterContainer) {
+async function loadLetters(letterContainer) {
     let length = letterContainer.length - 1;
     
     while (true) {
         for (let i = 0; i < length; i += 2) {
-            await wait(Math.floor(Math.random() * (150 - 50 + 1) + 50));
+            await wait(Math.floor(Math.random() * (100 - 50 + 1) + 50));
             for (let j = 0; j < positions.length; j++) {
                 document.querySelector(letterContainer[i]).children[0].children[j].setAttribute("src", `images/${letterContainer[i][1]}-${positions[j]}.webp`);
                 await wait(Math.floor(Math.random() * (75 - 25 + 1) + 25));
                 document.querySelector(letterContainer[length - i]).children[0].children[3 - j].setAttribute("src", `images/${letterContainer[length - i][1]}-${positions[3-j]}.webp`);
-                await wait(Math.floor(Math.random() * (100 - 25 + 1) + 25));
+                await wait(Math.floor(Math.random() * (50 - 25 + 1) + 25));
             }
         }
 
         await wait(120*1000);
         
         for (let i = 0; i < length; i += 2) {
-            await wait(500);
+            await wait(250);
             for (let j = 0; j < positions.length; j++) {
                 document.querySelector(letterContainer[i]).children[0].children[j].setAttribute("src", `images/placeholder.webp`);
                 await wait(Math.floor(Math.random() * (75 - 25 + 1) + 25));
@@ -63,23 +63,35 @@ async function reloadLetters(letterContainer) {
 
 };
 
-async function explode(e) {
+async function explode(e, dest) {
     for (let i = 0; i < letters.length; i++) {
         let letter = document.querySelector(letters[i]).children[0];
         if (letter == e) {
             if (e.getAttribute("index") == "0") {
+                switch (dest) {
+                    case "m":
+                        e.setAttribute("style", "background-image: url('images/maeve-human-portfolio-thumbnail.webp')");
+                        console.log("true")
+                        break;
+                }
                 e.setAttribute("index", "1");
             } else {
                 if (e.getAttribute("index") == "1") {
+                    e.setAttribute("style", "background-image: url('images/maeve-human-portfolio.webp')");
                     e.setAttribute("index", "2");
 
-                    await wait(1500);
+                    await wait(1200);
+                    if (dest == "m") {
+                        window.location.href = "maeve-human-portfolio/";
+                    }
+                    await wait(300);
                     e.setAttribute("index", "0");
                 }
             }
         } else {
             if (letter.getAttribute("index") != "0") {
                 letter.setAttribute("index", "0");
+                letter.setAttribute("style", "background-image: ");
             }
         }
 
@@ -93,9 +105,10 @@ async function explodeHandler(e) {
     if (e.target.classList.contains("letter-inner")) {
         letter = e.target;
     }
-    explode(letter);
-};
 
+    let dest = letter.parentNode.getAttribute("id")[0];
+    explode(letter, dest);
+};
 
 document.querySelector("#m-letter").addEventListener("click", explodeHandler);
 document.querySelector("#y-letter").addEventListener("click", explodeHandler);
@@ -119,6 +132,7 @@ window.addEventListener("click", (e) => {
         default:
             for (let i = 0; i < letters.length; i++) {
                 document.querySelector(letters[i]).children[0].setAttribute("index", "0");
+                document.querySelector(letters[i]).children[0].setAttribute("style", "background-image: ");
             }
             break;
     }
@@ -126,4 +140,4 @@ window.addEventListener("click", (e) => {
 
 typeTerminal();
 
-reloadLetters(letters);
+loadLetters(letters);
