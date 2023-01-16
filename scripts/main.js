@@ -34,7 +34,7 @@ let positions = ["topleft", "topright", "botleft", "botright"];
 
 async function loadLetters(letterContainer) {
     let length = letterContainer.length - 1;
-    
+
     while (true) {
         for (let i = 0; i < length; i += 2) {
             await wait(Math.floor(Math.random() * (100 - 50 + 1) + 50));
@@ -46,8 +46,8 @@ async function loadLetters(letterContainer) {
             }
         }
 
-        await wait(120*1000);
-        
+        await wait(120 * 1000);
+
         for (let i = 0; i < length; i += 2) {
             await wait(250);
             for (let j = 0; j < positions.length; j++) {
@@ -64,25 +64,35 @@ async function loadLetters(letterContainer) {
 };
 
 async function explode(e, dest) {
+    const width = window.innerWidth;
+    let size = "";
+    if (width < 1025) {
+        size = "-small";
+    }
     for (let i = 0; i < letters.length; i++) {
         let letter = document.querySelector(letters[i]).children[0];
         if (letter == e) {
             if (e.getAttribute("index") == "0") {
                 switch (dest) {
                     case "m":
-                        e.setAttribute("style", "background-image: url('images/maeve-human-portfolio-thumbnail.webp')");
-                        console.log("true")
+                        e.setAttribute("style", `background-image: url('images/maeve-human-portfolio-thumbnail${size}.webp')`);
                         break;
                 }
                 e.setAttribute("index", "1");
             } else {
                 if (e.getAttribute("index") == "1") {
-                    e.setAttribute("style", "background-image: url('images/maeve-human-portfolio.webp')");
+                    switch (dest) {
+                        case "m":
+                            e.setAttribute("style", `background-image: url('images/maeve-human-portfolio${size}.webp')`);
+                            break;
+                    }
                     e.setAttribute("index", "2");
 
                     await wait(1200);
-                    if (dest == "m") {
-                        window.location.href = "maeve-human-portfolio/";
+                    switch (dest) {
+                        case "m":
+                            window.location.href = "maeve-human-portfolio/";
+                            break;
                     }
                     await wait(300);
                     e.setAttribute("index", "0");
