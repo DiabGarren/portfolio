@@ -19,6 +19,13 @@
 
     header {
         grid-template-columns: 75px 1fr;
+        background: linear-gradient(black 25%, var(--primary-color) 50%);
+    }
+
+    #terminal>h1 {
+        font-size: 27px;
+        padding: 15px;
+        margin: 0;
     }
 
     #top-logo {

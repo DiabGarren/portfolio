@@ -14,7 +14,18 @@
 @media only screen and (min-width: 561px) {
     header {
         grid-template-columns: 75px 1fr;
+        grid-template-rows: 46px;
         position: relative;
+        background: linear-gradient(black 15%, var(--primary-color) 40%);
+    }
+
+    #terminal {
+        margin: 0 50px;
+    }
+    
+    #terminal>h1 {
+        padding: 10px 0;
+        font-size: 20px;
     }
 
     #top-logo {
