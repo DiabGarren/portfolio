@@ -86,6 +86,7 @@ async function explode(e, dest) {
                     }
                     await wait(300);
                     e.setAttribute("index", "0");
+                    letter.setAttribute("style", "background-image: ");
                 }
             }
         } else {
