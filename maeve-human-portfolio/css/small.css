@@ -67,33 +67,27 @@ header {
     align-items: center;
     margin: .5rem 0;
 }
-
-#slivers a {
-    background-color: var(--primary);
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    padding: 0 .5rem;
-}
-
 #slivers a h1 {
     grid-row: 2;
     margin: auto;
 }
 
 #slivers a {
+    background-color: var(--primary);
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    padding: 0 .5rem;
     text-decoration: none;
     color: var(--secndary);
     height: 100%;
-    width: 97.7%;
     transform: scale(1);
     transition-duration: .6s;
     opacity: 1;
 }
 
 #slivers a:hover {
-    transform: scale(1.2);
     transition-duration: .6s;
-    width: 88.7%;
+    /* width: 88.7%; */
     opacity: 0.8;
 }
 
@@ -234,6 +228,7 @@ footer {
     }
 
     #slivers a:hover {
+        transform: scale(1.2);
         height: 83.5%;
         width: 100%;
     }
