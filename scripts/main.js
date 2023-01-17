@@ -4,7 +4,7 @@ const terminal = document.querySelector("#terminal");
 const letters = ["#m-letter", "#y-letter", "#p-letter", "#r-letter", "#o-letter", "#j-letter", "#e-letter", "#c-letter", "#t-letter", "#s-letter"];
 const positions = ["topleft", "topright", "botleft", "botright"];
 
-const sites = ["maeve-human-portfolio", "bountiful-foods"]
+const sites = ["maeve-human-portfolio", "bountiful-foods", "chamber"]
 let site = null;
 
 const wait = (milliseconds) => {
@@ -73,9 +73,11 @@ async function explode(e, dest) {
     if (width < 1025) {
         size = "-small";
     }
+
     for (let i = 0; i < letters.length; i++) {
-        let letter = document.querySelector(letters[i]).children[0];
-        if (letter == e) {
+        let letter = document.querySelector(letters[i]);
+
+        if (letter.getAttribute("id") == e.getAttribute("id")) {
             switch (dest) {
                 case "m":
                     site = 0;
@@ -83,31 +85,35 @@ async function explode(e, dest) {
                 case "y":
                     site = 1;
                     break;
+                case "p":
+                    site = 2;
+                    break;
+                default:
+                    return;
             }
-            if (e.getAttribute("index") == "0") {
-                e.setAttribute("style", `background-image: url('images/${sites[site]}-thumbnail${size}.webp')`);
-                e.setAttribute("index", "1");
+            if (e.children[0].getAttribute("index") == "0") {
+                e.children[0].setAttribute("style", `background-image: url('images/${sites[site]}-thumbnail${size}.webp')`);
+                e.children[0].setAttribute("index", "1");
             } else {
-                if (e.getAttribute("index") == "1") {
+                if (e.children[0].getAttribute("index") == "1") {
 
                     if (site != null) {
-                        e.setAttribute("style", `background-image: url('images/${sites[site]}${size}.webp')`);
+                        e.children[0].setAttribute("style", `background-image: url('images/${sites[site]}${size}.webp')`);
                     }
-                    e.setAttribute("index", "2");
+                    e.children[0].setAttribute("index", "2");
 
                     await wait(1200);
                     window.location.href = `${sites[site]}/`;
 
                     await wait(300);
-                    e.setAttribute("index", "0");
-                    
-                    letter.setAttribute("style", "background-image: ");
+                    e.children[0].setAttribute("index", "0");
+                    e.children[0].removeAttribute("style");
                 }
             }
         } else {
-            if (letter.getAttribute("index") != "0") {
-                letter.setAttribute("index", "0");
-                letter.setAttribute("style", "background-image: ");
+            if (letter.children[0].getAttribute("index") != "0") {
+                letter.children[0].setAttribute("index", "0");
+                letter.children[0].removeAttribute("style");
             }
         }
 
@@ -117,38 +123,26 @@ async function explode(e, dest) {
 
 
 async function explodeHandler(e) {
-    let letter = e.target.parentNode;
-    if (e.target.classList.contains("letter-inner")) {
-        letter = e.target;
-    }
-
-    let dest = letter.parentNode.getAttribute("id")[0];
+    let letter = e;
+    let dest = letter.getAttribute("id")[0];
     explode(letter, dest);
 };
-
-document.querySelector("#m-letter").addEventListener("click", explodeHandler);
-document.querySelector("#y-letter").addEventListener("click", explodeHandler);
-document.querySelector("#p-letter").addEventListener("click", explodeHandler);
-document.querySelector("#r-letter").addEventListener("click", explodeHandler);
-document.querySelector("#o-letter").addEventListener("click", explodeHandler);
-document.querySelector("#j-letter").addEventListener("click", explodeHandler);
-document.querySelector("#e-letter").addEventListener("click", explodeHandler);
-document.querySelector("#c-letter").addEventListener("click", explodeHandler);
-document.querySelector("#t-letter").addEventListener("click", explodeHandler);
-document.querySelector("#s-letter").addEventListener("click", explodeHandler);
 
 window.addEventListener("click", (e) => {
     switch (e.target.className) {
         case "letter-inner":
+            explodeHandler(e.target.parentNode);
+            break;
         case "top-left":
         case "top-right":
         case "bot-left":
         case "bot-right":
+            explodeHandler(e.target.parentNode.parentNode);
             break;
         default:
             for (let i = 0; i < letters.length; i++) {
                 document.querySelector(letters[i]).children[0].setAttribute("index", "0");
-                document.querySelector(letters[i]).children[0].setAttribute("style", "background-image: ");
+                document.querySelector(letters[i]).children[0].removeAttribute("style");
             }
             break;
     }
