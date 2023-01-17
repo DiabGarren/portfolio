@@ -8,7 +8,19 @@
 
     /*----------- HEADER --------------*/
 
+    header {
+        grid-template-rows: 46px;
+        background: linear-gradient(black 15%, #061168 40%);
+    }
 
+    #terminal {
+        margin: 0 50px;
+    }
+
+    #terminal>h1 {
+        /* padding: 10px 0; */
+        font-size: 20px;
+    }
 
     /*----------- NAVIGATION --------------*/
     #ham_btn {
@@ -56,7 +68,9 @@
         grid-row: 2;
     }
 
-    #news h2, #news p, #join h2 {
+    #news h2,
+    #news p,
+    #join h2 {
         margin: .5rem 0;
     }
 
@@ -75,7 +89,8 @@
         padding: .5rem 0 1.5rem 0;
     }
 
-    #join-big, #join-btn{
+    #join-big,
+    #join-btn {
         display: block;
         background-color: #1aff00;
         padding: .5rem;
@@ -99,7 +114,7 @@
         grid-column: 3/4;
         grid-row: 5;
     }
-    
+
     #weather-info {
         display: block;
     }
@@ -130,7 +145,7 @@
     }
 
 
-    
+
     .business-cards {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(430px, 1fr));

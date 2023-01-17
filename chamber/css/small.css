@@ -23,11 +23,33 @@ body {
 
 /*----------- HEADER --------------*/
 header {
-    background-color: #061168;
     color: #fff;
     display: grid;
     grid-template-columns: 75px auto;
+    grid-template-rows: 26px;
+    background: linear-gradient(black 20px, #061168 60px);
 }
+
+#terminal {
+    text-decoration: none;
+    grid-column: 1/3;
+    grid-row: 1;
+    height: 100%;
+    color: #ed9012;
+    text-align: left;
+}
+
+#terminal>h1 {
+    font-family: 'Fira Code', monospace;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+#terminal>h1::after {
+    content: attr(data-end);
+    animation: typing-blink 1.5s linear 0s infinite;
+}
+
 
 header img {
     padding: .5rem 2%;
@@ -483,4 +505,22 @@ footer .bar {
     text-decoration: none;
     color: #fff;
     padding: .8rem 0;
+}
+
+@keyframes typing-blink {
+    20% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 0;
+    }
+
+    75% {
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 1;
+    }
 }
