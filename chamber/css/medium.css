@@ -46,7 +46,7 @@
 
     /*----------- MAIN --------------*/
 
-    main div {
+    main>div {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         margin: 0 1%;
@@ -78,7 +78,6 @@
         grid-column: 1/4;
         grid-row: 3;
         display: grid;
-        grid-template-columns: 1fr 1fr;
     }
 
     #join {
