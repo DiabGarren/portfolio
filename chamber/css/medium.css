@@ -1,0 +1,202 @@
+/* 35em is also 560px (if basefont is 16px) */
+@media only screen and (min-width: 35rem) {
+
+
+    /*----------- BODY --------------*/
+
+
+
+    /*----------- HEADER --------------*/
+
+
+
+    /*----------- NAVIGATION --------------*/
+    #ham_btn {
+        background-color: transparent;
+        color: #fff;
+        border: none;
+        font-size: 2rem;
+        padding: 0.5rem;
+    }
+
+    .open {
+        display: flex;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    nav ul li {
+        flex-basis: 25%;
+    }
+
+
+    /*----------- MAIN --------------*/
+
+    main div {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: 0 1%;
+    }
+
+    #hero {
+        grid-column: 1/4;
+        grid-row: 1;
+        height: 250px;
+    }
+
+    #join-btn {
+        display: block;
+        width: 150px;
+    }
+
+    #news {
+        grid-column: 1/4;
+        grid-row: 2;
+    }
+
+    #news h2, #news p, #join h2 {
+        margin: .5rem 0;
+    }
+
+    .spotlight {
+        grid-column: 1/4;
+        grid-row: 3;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #join {
+        display: block;
+        grid-column: 1/4;
+        grid-row: 4;
+        height: 115px;
+        padding: .5rem 0 1.5rem 0;
+    }
+
+    #join-big, #join-btn{
+        display: block;
+        background-color: #1aff00;
+        padding: .5rem;
+        border-radius: 15px;
+        max-width: 45%;
+        margin: .8rem auto;
+    }
+
+
+    #join #join-big:hover {
+        background-color: #0b6f00;
+        color: #eee;
+    }
+
+    #event {
+        grid-column: 1/3;
+        grid-row: 5
+    }
+
+    #weather {
+        grid-column: 3/4;
+        grid-row: 5;
+    }
+    
+    #weather-info {
+        display: block;
+    }
+
+    .disc-card {
+        grid-column: 1/4;
+        display: block;
+    }
+
+
+
+    .disc-img img:hover {
+        box-shadow: 0 15px 10px #12d6f0, 0 -15px 10px #12d6f0;
+    }
+
+    form {
+        margin: .8rem 1%;
+    }
+
+    #form-content {
+        display: block;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    #thank-you {
+        margin: .8rem 1%;
+    }
+
+
+    
+    .business-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(430px, 1fr));
+        justify-items: center;
+        text-align: center;
+        padding: 0 1.5em;
+        max-width: 1600px;
+    }
+
+    .business-cards section {
+        display: block;
+        width: 95%;
+        border-radius: 10px;
+    }
+
+    .business-cards section img {
+        display: inline;
+        margin: .75rem;
+    }
+
+    .img-box {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        height: 150px;
+    }
+
+    #list {
+        display: block;
+        padding: 0;
+        width: 100%;
+    }
+
+    #list section {
+        border-radius: 0;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(150px, 260px)) 115px minmax(100px, 300px);
+    }
+
+    #list section a {
+        word-wrap: break-word;
+    }
+
+    /*----------- FOOTER --------------*/
+
+    footer {
+        display: grid;
+        grid-template-columns: 60% 40%;
+        font-size: 1rem;
+    }
+
+    #info {
+        grid-column: 1;
+        text-align: left;
+    }
+
+    #contact {
+        grid-column: 2;
+    }
+
+    .bar,
+    #about {
+        grid-column: 1/3;
+    }
+
+
+}
+
+/* end of media query */
