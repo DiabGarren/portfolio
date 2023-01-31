@@ -7,6 +7,9 @@ const positions = ["topleft", "topright", "botleft", "botright"];
 const sites = ["maeve-human-portfolio", "bountiful-foods", "chamber"]
 let site = null;
 
+const fillNumbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+"];
+const fillLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "@", "."]
+
 const wait = (milliseconds) => {
     return new Promise(resolve => {
         setTimeout(resolve, milliseconds);
@@ -45,7 +48,7 @@ async function loadLetters(letterContainer) {
             for (let j = 0; j < positions.length; j++) {
                 document.querySelector(letterContainer[i]).children[0].children[j].setAttribute("src", `images/${letterContainer[i][1]}-${positions[j]}.webp`);
                 await wait(Math.floor(Math.random() * (75 - 25 + 1) + 25));
-                document.querySelector(letterContainer[length - i]).children[0].children[3 - j].setAttribute("src", `images/${letterContainer[length - i][1]}-${positions[3-j]}.webp`);
+                document.querySelector(letterContainer[length - i]).children[0].children[3 - j].setAttribute("src", `images/${letterContainer[length - i][1]}-${positions[3 - j]}.webp`);
                 await wait(Math.floor(Math.random() * (50 - 25 + 1) + 25));
             }
         }
@@ -147,6 +150,33 @@ window.addEventListener("click", (e) => {
             break;
     }
 });
+
+// function fillText(text, type) {
+//     let outString = "";
+//     let fillList = [];
+
+//     if (type == "text") {
+//         fillList = fillLetters;
+//     } else {
+//         fillList = fillNumbers;
+//     }
+
+//     for (let i = 0; i < text.length; i++) {
+//         outString += fillList[Math.floor(Math.random() * (fillList.length - 1 - 0 + 1) + 0)];
+//     }
+//     return outString;
+// }
+
+// const phone = document.querySelector("#phone");
+// let phoneText = phone.getAttribute("text");
+
+// phone.textContent = fillText(phoneText, "numbers");
+
+
+// const email = document.querySelector("#email");
+// let emailText = email.getAttribute("text");
+
+// email.textContent = fillText(emailText, "text");
 
 typeTerminal();
 
