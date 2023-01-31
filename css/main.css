@@ -4,9 +4,14 @@
 
 body {
     background-color: #151515;
+    font-family: 'Fira Code', monospace;
     margin: 0;
 }
 
+::selection {
+    background-color: #ed9012;
+    color: #151515;
+}
 
 header {
     background-color: #0f0e0e;
@@ -21,7 +26,6 @@ header>div {
 
 #terminal {
     margin: 0;
-    font-family: 'Fira Code', monospace;
     padding: 10px 0;
     font-size: 16px;
 }
@@ -186,6 +190,35 @@ img {
     /* background-color: white; */
 }
 
+footer {
+    width: 100%;
+    background-color: #0f0e0e;
+    color: #ed9012;
+    /* text-align: center; */
+}
+
+footer>div {
+    max-width: 1600px;
+    padding: 10px 0;
+}
+
+footer p {
+    padding: 0;
+    margin: 0;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #151515;
+    background-color: #ed9012;
+}
+
+
+
 @keyframes typing-blink {
     20% {
         opacity: 1;
@@ -212,7 +245,7 @@ img {
         width: 1vw;
         height: 1vh;
     }
-    
+
     100% {
         position: absolute;
         left: 50%;
@@ -224,14 +257,19 @@ img {
 }
 
 @media only screen and (min-width: 561px) {
-    #terminal {
+
+    #terminal,
+    footer>div {
         font-size: 20px;
         margin: 0 50px;
+        margin: 0 auto;
     }
 }
 
 @media only screen and (min-width: 1025px) {
-    #terminal {
+
+    #terminal,
+    footer>div {
         padding: 15px;
         font-size: 27px;
     }
