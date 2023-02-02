@@ -58,6 +58,15 @@ img {
     height: 100%;
 }
 
+a {
+    text-decoration: none;
+    color: #ee8c16;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 #gap {
     grid-row: 2;
     height: calc(100vw*0.05);
@@ -188,6 +197,11 @@ img {
     grid-column: 15;
     grid-row: 3;
     /* background-color: white; */
+}
+
+#pdf {
+    margin: 0 auto;
+    width: 95%;
 }
 
 footer {
