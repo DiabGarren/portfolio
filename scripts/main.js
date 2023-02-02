@@ -4,11 +4,10 @@ const terminal = document.querySelector("#terminal");
 const letters = ["#m-letter", "#y-letter", "#p-letter", "#r-letter", "#o-letter", "#j-letter", "#e-letter", "#c-letter", "#t-letter", "#s-letter"];
 const positions = ["topleft", "topright", "botleft", "botright"];
 
-const sites = ["maeve-human-portfolio", "bountiful-foods", "chamber"]
+const sites = ["maeve-human-portfolio", "bountiful-foods", "chamber"];
 let site = null;
 
-const fillNumbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+"];
-const fillLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "@", "."]
+
 
 const wait = (milliseconds) => {
     return new Promise(resolve => {
@@ -151,32 +150,6 @@ window.addEventListener("click", (e) => {
     }
 });
 
-// function fillText(text, type) {
-//     let outString = "";
-//     let fillList = [];
-
-//     if (type == "text") {
-//         fillList = fillLetters;
-//     } else {
-//         fillList = fillNumbers;
-//     }
-
-//     for (let i = 0; i < text.length; i++) {
-//         outString += fillList[Math.floor(Math.random() * (fillList.length - 1 - 0 + 1) + 0)];
-//     }
-//     return outString;
-// }
-
-// const phone = document.querySelector("#phone");
-// let phoneText = phone.getAttribute("text");
-
-// phone.textContent = fillText(phoneText, "numbers");
-
-
-// const email = document.querySelector("#email");
-// let emailText = email.getAttribute("text");
-
-// email.textContent = fillText(emailText, "text");
 
 typeTerminal();
 
