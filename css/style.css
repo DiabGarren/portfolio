@@ -1,0 +1,256 @@
+body {
+  background: #151515;
+  color: #ed9012;
+  font-family: "Fira Code", monospace;
+  margin: 0;
+}
+
+::selection {
+  background: #0f0e0e;
+  color: #ed9012;
+}
+
+header {
+  background: #0f0e0e;
+}
+header div {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+#terminal {
+  margin: 0 auto;
+  padding: 0;
+  font-size: 16px;
+  padding: 5px;
+}
+@media (min-width: 560px) {
+  #terminal {
+    font-size: 20px;
+    padding: 10px;
+  }
+}
+@media (min-width: 1025px) {
+  #terminal {
+    font-size: 27px;
+  }
+}
+#terminal::after {
+  content: attr(data-end);
+  color: #ee8c16;
+  animation: typing-blink 1.5s linear 0s infinite;
+}
+
+main {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+main #container {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(30px, 190px));
+  gap: 0.5em;
+  margin: 50px;
+  justify-content: center;
+}
+main .letter {
+  text-decoration: none;
+  text-align: center;
+  color: #ed9012;
+  font-family: "Major Mono Display", monospace;
+  font-size: 12em;
+}
+main .letter:hover {
+  z-index: 2;
+  background: white;
+  border-radius: 3vw;
+  box-shadow: 0 0 5px 5px #fff, 0 0 30px 1vw #0685a9, 0 0 40px 2vw #03158d, 0 0 50px 3vw #430ead;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+main .letter:hover#m {
+  background-image: url("../images/maeve-human-portfolio-thumbnail-small.webp");
+}
+@media (min-width: 560px) {
+  main .letter:hover#m {
+    background-image: url("../images/maeve-human-portfolio-thumbnail.webp");
+  }
+}
+main .letter:hover#y {
+  background-image: url("../images/bountiful-foods-thumbnail-small.webp");
+}
+@media (min-width: 560px) {
+  main .letter:hover#y {
+    background-image: url("../images/bountiful-foods-thumbnail.webp");
+  }
+}
+main .letter:hover#p {
+  background-image: url("../images/chamber-thumbnail-small.webp");
+}
+@media (min-width: 560px) {
+  main .letter:hover#p {
+    background-image: url("../images/chamber-thumbnail.webp");
+  }
+}
+main .letter-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+main .letter-inner img {
+  transition: 0.5s;
+  width: 100%;
+}
+main .letter-inner:hover .top-left {
+  transform: translate(-2vw, -4vw) rotate(30deg);
+}
+main .letter-inner:hover .top-right {
+  transform: translate(2vw, -4vw) rotate(-30deg);
+}
+main .letter-inner:hover .bot-left {
+  transform: translate(-2vw, 4vw) rotate(-30deg);
+}
+main .letter-inner:hover .bot-right {
+  transform: translate(2vw, 4vw) rotate(30deg);
+}
+main .letter#m {
+  grid-column: 4;
+  grid-row: 1;
+}
+main .letter#y {
+  grid-column: 5;
+  grid-row: 1;
+}
+main .letter#p {
+  grid-column: 1;
+  grid-row: 2;
+}
+main .letter#r {
+  grid-column: 2;
+  grid-row: 2;
+}
+main .letter#o {
+  grid-column: 3;
+  grid-row: 2;
+}
+main .letter#j {
+  grid-column: 4;
+  grid-row: 2;
+}
+main .letter#e {
+  grid-column: 5;
+  grid-row: 2;
+}
+main .letter#c {
+  grid-column: 6;
+  grid-row: 2;
+}
+main .letter#t {
+  grid-column: 7;
+  grid-row: 2;
+}
+main .letter#s {
+  grid-column: 8;
+  grid-row: 2;
+}
+@media screen and (max-width: 1130px) {
+  main .letter {
+    font-size: 11em;
+  }
+}
+@media screen and (max-width: 1045px) {
+  main .letter {
+    font-size: 10em;
+  }
+}
+@media screen and (max-width: 955px) {
+  main .letter {
+    font-size: 9em;
+  }
+}
+@media screen and (max-width: 870px) {
+  main .letter {
+    font-size: 8em;
+  }
+}
+@media screen and (max-width: 780px) {
+  main .letter {
+    font-size: 7em;
+  }
+}
+@media screen and (max-width: 700px) {
+  main .letter {
+    font-size: 6em;
+  }
+}
+@media screen and (max-width: 610px) {
+  main .letter {
+    font-size: 5em;
+  }
+}
+@media screen and (max-width: 530px) {
+  main .letter {
+    font-size: 4em;
+  }
+}
+@media screen and (max-width: 445px) {
+  main .letter {
+    font-size: 3em;
+  }
+}
+@media screen and (max-width: 370px) {
+  main .letter {
+    font-size: 2em;
+  }
+}
+
+footer {
+  width: 100%;
+  background-color: #0f0e0e;
+  color: #ed9012;
+}
+footer div {
+  max-width: 1400px;
+  padding: 5px;
+}
+@media (min-width: 560px) {
+  footer div {
+    font-size: 20px;
+    padding: 10px;
+  }
+}
+@media (min-width: 1025px) {
+  footer div {
+    font-size: 27px;
+    margin: 0 auto;
+  }
+}
+footer p {
+  padding: 0;
+  margin: 0;
+}
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+  color: #151515;
+  background-color: #ed9012;
+}
+
+@keyframes typing-blink {
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

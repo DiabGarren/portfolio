@@ -1,0 +1,373 @@
+$main-bg: #151515;
+$element-bg: #0f0e0e;
+$orange: #ed9012;
+
+$block-width: minmax(30px, 190px);
+
+$large-break: 1025px;
+$medium-break: 560px;
+
+@mixin screenSize($break) {
+    @if $break==large {
+        @media(min-width: $large-break) {
+            @content;
+        }
+    }
+
+    @else if $break==medium {
+        @media(min-width: $medium-break) {
+            @content;
+        }
+    }
+
+    @else {
+        @content;
+
+    }
+}
+
+@mixin font-size($screen-size, $font-size) {
+    @media screen and (max-width: #{$screen-size}px) {
+        font-size: $font-size;
+    }
+}
+
+body {
+    background: $main-bg;
+    color: $orange;
+    font-family: 'Fira Code', monospace;
+    margin: 0;
+}
+
+::selection {
+    background: $element-bg;
+    color: $orange;
+}
+
+header {
+    background: $element-bg;
+
+    div {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+}
+
+#terminal {
+    margin: 0 auto;
+    padding: 0;
+
+    @include screenSize(small) {
+        font-size: 16px;
+        padding: 5px;
+    }
+
+    @include screenSize(medium) {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    @include screenSize(large) {
+        font-size: 27px;
+    }
+
+    &::after {
+        content: attr(data-end);
+        color: #ee8c16;
+        animation: typing-blink 1.5s linear 0s infinite;
+    }
+}
+
+main {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    #container {
+        display: grid;
+        grid-template-columns: repeat(8, $block-width);
+        gap: 0.5em;
+        margin: 50px;
+        justify-content: center;
+    }
+
+    .letter {
+        text-decoration: none;
+
+        &:hover {
+            z-index: 2;
+            background: white;
+            border-radius: calc(100vw*0.03);
+            box-shadow: 0 0 5px 5px #fff,
+                0 0 30px calc(100vw*.01) #0685a9,
+                0 0 40px calc(100vw*.02) #03158d,
+                0 0 50px calc(100vw*.03) #430ead;
+
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+
+            &#m {
+                @include screenSize(small) {
+                    background-image: url("../images/maeve-human-portfolio-thumbnail-small.webp");
+                }
+
+                @include screenSize(medium) {
+                    background-image: url("../images/maeve-human-portfolio-thumbnail.webp");
+                }
+            }
+
+            &#y {
+                @include screenSize(small) {
+                    background-image: url("../images/bountiful-foods-thumbnail-small.webp");
+                }
+
+                @include screenSize(medium) {
+                    background-image: url("../images/bountiful-foods-thumbnail.webp");
+                }
+
+            }
+
+            &#p {
+                @include screenSize(small) {
+                    background-image: url("../images/chamber-thumbnail-small.webp");
+                }
+
+                @include screenSize(medium) {
+                    background-image: url("../images/chamber-thumbnail.webp");
+                }
+
+            }
+
+            &#r {
+                @include screenSize(small) {
+                    // background-image: url("../images/-thumbnail-small.webp");
+                }
+
+                @include screenSize(medium) {
+                    // background-image: url("../images/-thumbnail.webp");
+                }
+
+            }
+
+            &#o {
+                @include screenSize(small) {
+                    // background-image: url("../images/-thumbnail-small.webp");
+                }
+
+                @include screenSize(medium) {
+                    // background-image: url("../images/-thumbnail.webp");
+                }
+
+            }
+
+            &#j {
+                @include screenSize(small) {
+                    // background-image: url("../images/-thumbnail-small.webp");
+                }
+
+                @include screenSize(medium) {
+                    // background-image: url("../images/-thumbnail.webp");
+                }
+
+            }
+
+            &#e {
+                @include screenSize(small) {
+                    // background-image: url("../images/-thumbnail-small.webp");
+                }
+
+                @include screenSize(medium) {
+                    // background-image: url("../images/-thumbnail.webp");
+                }
+
+            }
+
+            &#c {
+                @include screenSize(small) {
+                    // background-image: url("../images/-thumbnail-small.webp");
+                }
+
+                @include screenSize(medium) {
+                    // background-image: url("../images/-thumbnail.webp");
+                }
+
+            }
+
+            &#t {
+                @include screenSize(small) {
+                    // background-image: url("../images/-thumbnail-small.webp");
+                }
+
+                @include screenSize(medium) {
+                    // background-image: url("../images/-thumbnail.webp");
+                }
+
+            }
+
+            &#s {
+                @include screenSize(small) {
+                    // background-image: url("../images/-thumbnail-small.webp");
+                }
+
+                @include screenSize(medium) {
+                    // background-image: url("../images/-thumbnail.webp");
+                }
+
+            }
+        }
+
+        &-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            img {
+                transition: .5s;
+                width: 100%;
+            }
+
+
+            &:hover {
+                .top-left {
+                    transform: translate(calc(100vw*-.02), calc(100vw*-.04)) rotate(30deg);
+                }
+
+                .top-right {
+                    transform: translate(calc(100vw*.02), calc(100vw*-.04)) rotate(-30deg);
+                }
+
+                .bot-left {
+                    transform: translate(calc(100vw*-.02), calc(100vw*.04)) rotate(-30deg);
+                }
+
+                .bot-right {
+                    transform: translate(calc(100vw*.02), calc(100vw*.04)) rotate(30deg);
+                }
+            }
+
+
+        }
+
+        &#m {
+            grid-column: 4;
+            grid-row: 1;
+        }
+
+        &#y {
+            grid-column: 5;
+            grid-row: 1;
+        }
+
+        &#p {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        &#r {
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        &#o {
+            grid-column: 3;
+            grid-row: 2;
+        }
+
+        &#j {
+            grid-column: 4;
+            grid-row: 2;
+        }
+
+        &#e {
+            grid-column: 5;
+            grid-row: 2;
+        }
+
+        &#c {
+            grid-column: 6;
+            grid-row: 2;
+        }
+
+        &#t {
+            grid-column: 7;
+            grid-row: 2;
+        }
+
+        &#s {
+            grid-column: 8;
+            grid-row: 2;
+        }
+
+
+        text-align: center;
+        color: $orange;
+        font-family: 'Major Mono Display',
+        monospace;
+        font-size: 12em;
+        @include font-size(1130, 11em);
+        @include font-size(1045, 10em);
+        @include font-size(955, 9em);
+        @include font-size(870, 8em);
+        @include font-size(780, 7em);
+        @include font-size(700, 6em);
+        @include font-size(610, 5em);
+        @include font-size(530, 4em);
+        @include font-size(445, 3em);
+        @include font-size(370, 2em);
+
+    }
+}
+
+footer {
+    width: 100%;
+    background-color: $element-bg;
+    color: $orange;
+
+    & div {
+        @include screenSize(small) {
+            max-width: 1400px;
+            padding: 5px;
+        }
+        @include screenSize(medium) {
+            font-size: 20px;
+            padding: 10px;
+        }
+        @include screenSize(large) {
+            font-size: 27px;
+            margin: 0 auto;
+        }
+    }
+
+    & p {
+        padding: 0;
+        margin: 0;
+    }
+
+    & a {
+        color: #fff;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+            color: #151515;
+            background-color: $orange;
+        }
+    }
+}
+
+@keyframes typing-blink {
+    20% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 0;
+    }
+
+    75% {
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 1;
+    }
+}
