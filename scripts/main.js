@@ -72,5 +72,10 @@ document.querySelector("#transcript").onmouseover = event => {
 document.querySelector("#resume").onmouseover = event => {
     fillText(event);
 }
+document.querySelector("#home").onmouseover = event => {
+    fillText(event);
+}
 
-loadLetters(letters);
+if(document.querySelector(letters[0]) != null) {
+    loadLetters(letters);
+} 

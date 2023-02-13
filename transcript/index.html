@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/main.css" media="screen" />
+    <link rel="stylesheet" href="../css/style.css" media="screen" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap" rel="stylesheet" />
@@ -15,11 +15,25 @@
 <body>
     <header>
         <div>
-            <a href="../"><h1 data-end="_" id="terminal">garren-diab>click here to go back</h1></a>
+            <h1 data-end="_" id="terminal">garren-diab></h1>
+            <button class="nav-btn">
+                <svg class="hamburger" viewBox="0 0 100 100">
+                    <rect width="80" height="10" x="10" y="25" rx="5"></rect>
+                    <rect width="80" height="10" x="10" y="45" rx="5"></rect>
+                    <rect width="80" height="10" x="10" y="65" rx="5"></rect>
+                </svg>
+            </button>
+            <nav id="nav">
+                <ul>
+                    <li><a href="../" id="home" data-value="Home">Home</a></li>
+                    <li><a href="#" class="active" id="transcript" data-value="Transcript">Transcript</a></li>
+                    <li><a href="../resume/" id="resume" data-value="Resume">Resume</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
     <main>
-        <div id="pdf">
+        <div>
             <img src="official-transcript-page1.png" alt="Official Transcript Page 1">
             <img src="official-transcript-page2.png" alt="Official Transcript Page 2">
         </div>
@@ -28,12 +42,11 @@
         <div>
             <p>Garren Diab</p>
             <p>Phone: <a id="phone" data-value="+27 60 981 1694" href="rel:(060)9811694">+27 60 981 1694</a></p>
-            <p>Email: <a id="email" data-value="garrendiab@gmail.com" href="mailto:garren@gmail.com">garrendiab@gmail.com</a></p>
-            <p>Offical Transcript: <a id="transcript" data-value="BYU-I Offical Transcript" href="">BYU-I Offical Transcript</a></p>
-            <p>Resume: <a id="resume" data-value="Resume" href="../resume/">Resume</a></p>
+            <p>Email: <a id="email" data-value="garrendiab@gmail.com"
+                    href="mailto:garren@gmail.com">garrendiab@gmail.com</a></p>
         </div>
     </footer>
-    <script type="text/javascript" src="../scripts/footer.js"></script>
+    <script type="text/javascript" src="../scripts/main.js"></script>
 </body>
 
 </html>

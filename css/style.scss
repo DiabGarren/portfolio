@@ -1,6 +1,8 @@
 $main-bg: #151515;
 $element-bg: #0f0e0e;
 $orange: #ed9012;
+$orange-faded: #ac6a0c;
+$orange-faded2: #6d4308;
 
 $block-width: minmax(30px, 190px);
 
@@ -26,20 +28,19 @@ $medium-break: 560px;
     }
 }
 
-@mixin font-size($screen-size, $font-size) {
-    @media screen and (max-width: #{$screen-size}px) {
-        font-size: $font-size;
-    }
-}
-
 body {
     background: $main-bg;
     color: $orange;
     font-family: 'Fira Code', monospace;
     margin: 0;
+
     img {
         transition: .5s;
         width: 100%;
+    }
+
+    a {
+        color: $orange;
     }
 }
 
@@ -54,31 +55,135 @@ header {
     div {
         max-width: 1400px;
         margin: 0 auto;
-    }
-}
+        display: grid;
 
-#terminal {
-    margin: 0 auto;
-    padding: 0;
+        @include screenSize(small) {
+            grid-template-columns: 1fr 35px;
+            grid-template-rows: 35px;
+        }
 
-    @include screenSize(small) {
-        font-size: 16px;
-        padding: 5px;
-    }
+        @include screenSize(medium) {
+            grid-template-columns: 1fr 46px;
+            grid-template-rows: 46px;
+        }
 
-    @include screenSize(medium) {
-        font-size: 20px;
-        padding: 10px;
-    }
-
-    @include screenSize(large) {
-        font-size: 27px;
+        @include screenSize(large) {
+            grid-template-columns: 1fr 56px;
+            grid-template-rows: 56px;
+        }
     }
 
-    &::after {
-        content: attr(data-end);
-        color: #ee8c16;
-        animation: typing-blink 1.5s linear 0s infinite;
+    #terminal {
+        grid-column: 1;
+
+        margin: 0;
+        padding: 0;
+        color: $orange;
+
+        @include screenSize(small) {
+            font-size: 16px;
+            padding: 5px;
+        }
+
+        @include screenSize(medium) {
+            font-size: 20px;
+            padding: 10px;
+        }
+
+        @include screenSize(large) {
+            font-size: 27px;
+        }
+
+        &::after {
+            content: attr(data-end);
+            animation: typing-blink 1.5s linear 0s infinite;
+        }
+    }
+
+    .nav-btn {
+        grid-column: 2;
+        padding: 0;
+        border: none;
+        height: 100%;
+        aspect-ratio: 1/1;
+
+    }
+
+    #nav {
+        grid-column: 1/3;
+
+        @include screenSize(small) {
+            font-size: 16px;
+        }
+
+        @include screenSize(medium) {
+            font-size: 20px;
+        }
+
+        @include screenSize(large) {
+            font-size: 27px;
+        }
+
+        ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+
+            margin: 0;
+            padding: 0;
+
+            text-align: center;
+        }
+
+        li {
+            display: inline-block;
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+            transition: .5s;
+
+            @include screenSize(small) {
+                border-bottom: 2px solid transparent;
+            }
+
+            @include screenSize(large) {
+                border-bottom: 3px solid transparent;
+            }
+        }
+
+        a:hover {
+            @include screenSize(small) {
+                border-bottom: 2px solid $orange;
+            }
+
+            @include screenSize(large) {
+                border-bottom: 3px solid $orange;
+            }
+        }
+
+        .active {
+            background: $orange;
+            color: $element-bg;
+
+            border-radius: 10px;
+
+            box-shadow: 0 0 5px 1px $orange,
+                0 0 8px 3px $orange-faded,
+                0 0 10px 5px $orange-faded2;
+        }
+
+        #home {
+            grid-column: 1;
+        }
+
+        #transcript {
+            grid-column: 2;
+        }
+
+        #resume {
+            grid-column: 3;
+        }
     }
 }
 
@@ -86,11 +191,14 @@ main {
     max-width: 1400px;
     margin: 0 auto;
 
+    &>div {
+        margin: 50px;
+    }
+
     #container {
         display: grid;
         grid-template-columns: repeat(8, $block-width);
         gap: 0.5em;
-        margin: 50px;
         justify-content: center;
     }
 
@@ -298,24 +406,6 @@ main {
             grid-column: 8;
             grid-row: 2;
         }
-
-
-        text-align: center;
-        color: $orange;
-        font-family: 'Major Mono Display',
-        monospace;
-        font-size: 12em;
-        @include font-size(1130, 11em);
-        @include font-size(1045, 10em);
-        @include font-size(955, 9em);
-        @include font-size(870, 8em);
-        @include font-size(780, 7em);
-        @include font-size(700, 6em);
-        @include font-size(610, 5em);
-        @include font-size(530, 4em);
-        @include font-size(445, 3em);
-        @include font-size(370, 2em);
-
     }
 }
 
@@ -329,10 +419,12 @@ footer {
             max-width: 1400px;
             padding: 5px;
         }
+
         @include screenSize(medium) {
             font-size: 20px;
             padding: 10px;
         }
+
         @include screenSize(large) {
             font-size: 27px;
             margin: 0 auto;
