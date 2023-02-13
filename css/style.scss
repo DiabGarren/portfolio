@@ -37,6 +37,10 @@ body {
     color: $orange;
     font-family: 'Fira Code', monospace;
     margin: 0;
+    img {
+        transition: .5s;
+        width: 100%;
+    }
 }
 
 ::selection {
@@ -88,6 +92,10 @@ main {
         gap: 0.5em;
         margin: 50px;
         justify-content: center;
+    }
+
+    #click {
+        grid-column: 3;
     }
 
     .letter {
@@ -219,12 +227,6 @@ main {
         &-inner {
             display: grid;
             grid-template-columns: 1fr 1fr;
-
-            img {
-                transition: .5s;
-                width: 100%;
-            }
-
 
             &:hover {
                 .top-left {

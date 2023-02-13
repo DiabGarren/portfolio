@@ -4,6 +4,10 @@ body {
   font-family: "Fira Code", monospace;
   margin: 0;
 }
+body img {
+  transition: 0.5s;
+  width: 100%;
+}
 
 ::selection {
   background: #0f0e0e;
@@ -52,6 +56,9 @@ main #container {
   margin: 50px;
   justify-content: center;
 }
+main #click {
+  grid-column: 3;
+}
 main .letter {
   text-decoration: none;
   text-align: center;
@@ -95,10 +102,6 @@ main .letter:hover#p {
 main .letter-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
-}
-main .letter-inner img {
-  transition: 0.5s;
-  width: 100%;
 }
 main .letter-inner:hover .top-left {
   transform: translate(-2vw, -4vw) rotate(30deg);
