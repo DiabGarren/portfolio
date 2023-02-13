@@ -81,6 +81,66 @@ document.querySelector(".nav-btn").addEventListener("click", () => {
     document.querySelector("#nav").classList.toggle("visible");
 });
 
-if(document.querySelector(letters[0]) != null) {
+if (document.querySelector(letters[0]) != null) {
     loadLetters(letters);
+
+    function letterAction(event, action) {
+        switch (event.target.classList.value) {
+            case "letter":
+            case "letter-inner":
+                if (action == "next") {
+                    switch (event.target.dataset.state) {
+                        case "close":
+                            event.target.dataset.state = "expand";
+                            break;
+                        case "expand":
+                            event.target.dataset.state = "go";
+                            if (event.target.parentNode.dataset.value != "") {
+                                window.open(event.target.parentNode.dataset.value);
+                            }
+                            break;
+                    }
+                } else if (action == "prev") {
+                    event.target.dataset.state = "close";
+                }
+            case "top-left":
+            case "top-right":
+            case "bot-left":
+            case "bot-right":
+                if (action == "next") {
+                    switch (event.target.parentNode.dataset.state, event.target.parentNode.parentNode.dataset.state) {
+                        case "close":
+                            event.target.parentNode.dataset.state = "expand";
+                            event.target.parentNode.parentNode.dataset.state = "expand";
+                            break;
+                        case "expand":
+                            event.target.parentNode.dataset.state = "go";
+                            event.target.parentNode.parentNode.dataset.state = "go";
+                            break;
+                    }
+                } else if (action == "prev") {
+                    event.target.parentNode.dataset.state = "close";
+                    event.target.parentNode.parentNode.dataset.state = "close";
+                }
+                break;
+        }
+    }
+
+    window.onmouseover = event => {
+        letterAction(event, "next");
+        window.onclick = event => {
+            letterAction(event, "next");
+        }
+    }
+    window.ontouchstart = event => {
+        letterAction(event, "next");
+    }
+
+    window.onmouseout = event => {
+        letterAction(event, "prev");
+    }
+    window.ontouchend = event => {
+        letterAction(event, "prev");
+    }
+
 } 

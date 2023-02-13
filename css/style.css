@@ -201,7 +201,7 @@ main #click {
 main .letter {
   text-decoration: none;
 }
-main .letter:hover {
+:is(main .letter[data-state=expand], main .letter[data-state=go]) {
   z-index: 2;
   background: white;
   border-radius: 3vw;
@@ -210,27 +210,27 @@ main .letter:hover {
   background-position: center;
   background-size: contain;
 }
-main .letter:hover#m {
+:is(main .letter[data-state=expand], main .letter[data-state=go])#m {
   background-image: url("../images/maeve-human-portfolio-thumbnail-small.webp");
 }
 @media (min-width: 560px) {
-  main .letter:hover#m {
+  :is(main .letter[data-state=expand], main .letter[data-state=go])#m {
     background-image: url("../images/maeve-human-portfolio-thumbnail.webp");
   }
 }
-main .letter:hover#y {
+:is(main .letter[data-state=expand], main .letter[data-state=go])#y {
   background-image: url("../images/bountiful-foods-thumbnail-small.webp");
 }
 @media (min-width: 560px) {
-  main .letter:hover#y {
+  :is(main .letter[data-state=expand], main .letter[data-state=go])#y {
     background-image: url("../images/bountiful-foods-thumbnail.webp");
   }
 }
-main .letter:hover#p {
+:is(main .letter[data-state=expand], main .letter[data-state=go])#p {
   background-image: url("../images/chamber-thumbnail-small.webp");
 }
 @media (min-width: 560px) {
-  main .letter:hover#p {
+  :is(main .letter[data-state=expand], main .letter[data-state=go])#p {
     background-image: url("../images/chamber-thumbnail.webp");
   }
 }
@@ -238,16 +238,16 @@ main .letter-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-main .letter-inner:hover .top-left {
+:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .top-left {
   transform: translate(-2vw, -4vw) rotate(30deg);
 }
-main .letter-inner:hover .top-right {
+:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .top-right {
   transform: translate(2vw, -4vw) rotate(-30deg);
 }
-main .letter-inner:hover .bot-left {
+:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .bot-left {
   transform: translate(-2vw, 4vw) rotate(-30deg);
 }
-main .letter-inner:hover .bot-right {
+:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .bot-right {
   transform: translate(2vw, 4vw) rotate(30deg);
 }
 main .letter#m {

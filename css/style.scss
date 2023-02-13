@@ -276,7 +276,7 @@ main {
     .letter {
         text-decoration: none;
 
-        &:hover {
+        :is(&[data-state="expand"], &[data-state="go"]) {
             z-index: 2;
             background: white;
             border-radius: calc(100vw*0.03);
@@ -403,7 +403,7 @@ main {
             display: grid;
             grid-template-columns: 1fr 1fr;
 
-            &:hover {
+            :is(&[data-state="expand"], &[data-state="go"]) {
                 .top-left {
                     transform: translate(calc(100vw*-.02), calc(100vw*-.04)) rotate(30deg);
                 }
