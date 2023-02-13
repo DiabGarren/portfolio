@@ -68,6 +68,8 @@ header .nav-btn {
   border: none;
   height: 100%;
   aspect-ratio: 1/1;
+  background: transparent;
+  cursor: pointer;
 }
 header #nav {
   grid-column: 1/3;
@@ -84,11 +86,14 @@ header #nav {
   }
 }
 header #nav ul {
-  display: grid;
+  display: none;
   grid-template-columns: 1fr 1fr 1fr;
   margin: 0;
   padding: 0;
   text-align: center;
+}
+header #nav.grid ul {
+  display: grid;
 }
 header #nav li {
   display: inline-block;

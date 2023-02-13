@@ -76,6 +76,11 @@ document.querySelector("#home").onmouseover = event => {
     fillText(event);
 }
 
+document.querySelector(".nav-btn").addEventListener("click", () => {
+    // document.querySelector()
+    document.querySelector("#nav").classList.toggle("grid");
+});
+
 if(document.querySelector(letters[0]) != null) {
     loadLetters(letters);
 } 
