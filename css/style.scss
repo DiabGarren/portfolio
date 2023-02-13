@@ -9,7 +9,13 @@ $block-width: minmax(30px, 190px);
 $large-break: 1025px;
 $medium-break: 560px;
 
-@mixin screenSize($break) {
+@mixin font-size($width, $size) {
+    @media(min-width: #{$width}px) {
+        font-size: #{$size}px;
+    }
+}
+
+@mixin screen-size($break) {
     @if $break==large {
         @media(min-width: $large-break) {
             @content;
@@ -29,6 +35,7 @@ $medium-break: 560px;
 }
 
 body {
+    min-width: 300px;
     background: $main-bg;
     color: $orange;
     font-family: 'Fira Code', monospace;
@@ -56,13 +63,14 @@ header {
         max-width: 1400px;
         margin: 0 auto;
         display: grid;
+        align-items: center;
 
-        @include screenSize(small) {
+        @include screen-size(small) {
             grid-template-columns: 1fr 49px;
             grid-template-rows: 49px;
         }
 
-        @include screenSize(medium) {
+        @include screen-size(medium) {
             grid-template-columns: 1fr 55px;
             grid-template-rows: 55px;
         }
@@ -72,22 +80,16 @@ header {
         grid-column: 1;
 
         margin: 0;
-        padding: 0;
+        padding: 10px;
         color: $orange;
 
-        @include screenSize(small) {
-            font-size: 20px;
-            padding: 10px;
-        }
-
-        @include screenSize(medium) {
-            font-size: 22px;
-            padding: 10px;
-        }
-
-        @include screenSize(large) {
-            font-size: 27px;
-        }
+        font-size: 1em;
+        @include font-size(300, 16);
+        @include font-size(480, 19);
+        @include font-size(560, 20);
+        @include font-size(692, 22);
+        @include font-size(988, 24);
+        @include font-size(1136, 27);
 
         &::after {
             content: attr(data-end);
@@ -104,7 +106,7 @@ header {
         background: transparent;
         cursor: pointer;
 
-        @include screenSize(large) {
+        @include screen-size(large) {
             display: none;
         }
 
@@ -143,32 +145,34 @@ header {
     #nav {
         grid-column: 1/3;
 
-        @include screenSize(small) {
-            font-size: 20px;
+        @include screen-size(small) {
             padding: 0 5px;
         }
-        
-        @include screenSize(medium) {
-            font-size: 22px;
+
+        @include screen-size(medium) {
             padding: 0 10px;
         }
 
-        @include screenSize(large) {
-            font-size: 27px;
-        }
+        font-size: 1em;
+        @include font-size(300, 16);
+        @include font-size(480, 19);
+        @include font-size(560, 20);
+        @include font-size(692, 22);
+        @include font-size(988, 24);
+        @include font-size(1136, 27);
 
         ul {
-            @include screenSize(small) {
+            @include screen-size(small) {
                 display: none;
                 text-align: center;
             }
 
-            @include screenSize(medium) {
+            @include screen-size(medium) {
 
                 grid-template-columns: 1fr 1fr 1fr;
             }
 
-            @include screenSize(large) {
+            @include screen-size(large) {
                 text-align: left;
                 display: block;
             }
@@ -179,22 +183,22 @@ header {
 
         &.visible {
             ul {
-                @include screenSize(small) {
+                @include screen-size(small) {
                     display: block;
                 }
 
-                @include screenSize(medium) {
+                @include screen-size(medium) {
                     display: grid;
                 }
 
-                @include screenSize(large) {
+                @include screen-size(large) {
                     display: block;
                 }
             }
         }
 
         li {
-            @include screenSize(medium) {
+            @include screen-size(medium) {
                 display: inline-block;
             }
         }
@@ -204,27 +208,27 @@ header {
             text-decoration: none;
             transition: .5s;
 
-            @include screenSize(small) {
+            @include screen-size(small) {
                 padding: 10px;
                 border-bottom: 2px solid transparent;
             }
 
-            @include screenSize(medium) {
+            @include screen-size(medium) {
                 padding: 5px;
             }
 
-            @include screenSize(large) {
+            @include screen-size(large) {
                 padding: 2px 50px;
                 border-bottom: 3px solid transparent;
             }
         }
 
         a:hover {
-            @include screenSize(small) {
+            @include screen-size(small) {
                 border-bottom: 2px solid $orange;
             }
 
-            @include screenSize(large) {
+            @include screen-size(large) {
                 border-bottom: 3px solid $orange;
             }
         }
@@ -269,14 +273,59 @@ main {
         justify-content: center;
     }
 
+    h2 {
+        font-family: 'Major Mono Display', monospace;
+
+        padding: 0;
+        margin: 0;
+
+        font-weight: lighter;
+
+        &::selection {
+            background: $main-bg;
+        }
+    }
+
     #click {
-        grid-column: 3;
+        grid-column: 2/4;
+        text-align: right;
+
+        @include screen-size(small) {
+            padding-right: 5px;
+        }
+
+        @include screen-size(medium) {
+            padding-right: 20px;
+        }
+
+        @include screen-size(large) {
+            padding-right: 30px;
+        }
+
+        @include font-size(300, 13);
+        @include font-size(480, 20);
+        @include font-size(545, 24);
+        @include font-size(692, 28);
+        @include font-size(988, 35);
+        @include font-size(1136, 45);
+    }
+
+    #desc {
+        grid-column: 1/9;
+        justify-self: center;
+
+        @include font-size(300, 16);
+        @include font-size(545, 24);
+        @include font-size(692, 32);
+        @include font-size(840, 40);
+        @include font-size(988, 48);
+        @include font-size(1136, 56);
     }
 
     .letter {
         text-decoration: none;
 
-        :is(&[data-state="expand"], &[data-state="go"]) {
+        &:is(&[data-state="expand"], &[data-state="go"]) {
             z-index: 2;
             background: white;
             border-radius: calc(100vw*0.03);
@@ -290,109 +339,109 @@ main {
             background-size: contain;
 
             &#m {
-                @include screenSize(small) {
+                @include screen-size(small) {
                     background-image: url("../images/maeve-human-portfolio-thumbnail-small.webp");
                 }
 
-                @include screenSize(medium) {
+                @include screen-size(medium) {
                     background-image: url("../images/maeve-human-portfolio-thumbnail.webp");
                 }
             }
 
             &#y {
-                @include screenSize(small) {
+                @include screen-size(small) {
                     background-image: url("../images/bountiful-foods-thumbnail-small.webp");
                 }
 
-                @include screenSize(medium) {
+                @include screen-size(medium) {
                     background-image: url("../images/bountiful-foods-thumbnail.webp");
                 }
 
             }
 
             &#p {
-                @include screenSize(small) {
+                @include screen-size(small) {
                     background-image: url("../images/chamber-thumbnail-small.webp");
                 }
 
-                @include screenSize(medium) {
+                @include screen-size(medium) {
                     background-image: url("../images/chamber-thumbnail.webp");
                 }
 
             }
 
             &#r {
-                @include screenSize(small) {
+                @include screen-size(small) {
                     // background-image: url("../images/-thumbnail-small.webp");
                 }
 
-                @include screenSize(medium) {
+                @include screen-size(medium) {
                     // background-image: url("../images/-thumbnail.webp");
                 }
 
             }
 
             &#o {
-                @include screenSize(small) {
+                @include screen-size(small) {
                     // background-image: url("../images/-thumbnail-small.webp");
                 }
 
-                @include screenSize(medium) {
+                @include screen-size(medium) {
                     // background-image: url("../images/-thumbnail.webp");
                 }
 
             }
 
             &#j {
-                @include screenSize(small) {
+                @include screen-size(small) {
                     // background-image: url("../images/-thumbnail-small.webp");
                 }
 
-                @include screenSize(medium) {
+                @include screen-size(medium) {
                     // background-image: url("../images/-thumbnail.webp");
                 }
 
             }
 
             &#e {
-                @include screenSize(small) {
+                @include screen-size(small) {
                     // background-image: url("../images/-thumbnail-small.webp");
                 }
 
-                @include screenSize(medium) {
+                @include screen-size(medium) {
                     // background-image: url("../images/-thumbnail.webp");
                 }
 
             }
 
             &#c {
-                @include screenSize(small) {
+                @include screen-size(small) {
                     // background-image: url("../images/-thumbnail-small.webp");
                 }
 
-                @include screenSize(medium) {
+                @include screen-size(medium) {
                     // background-image: url("../images/-thumbnail.webp");
                 }
 
             }
 
             &#t {
-                @include screenSize(small) {
+                @include screen-size(small) {
                     // background-image: url("../images/-thumbnail-small.webp");
                 }
 
-                @include screenSize(medium) {
+                @include screen-size(medium) {
                     // background-image: url("../images/-thumbnail.webp");
                 }
 
             }
 
             &#s {
-                @include screenSize(small) {
+                @include screen-size(small) {
                     // background-image: url("../images/-thumbnail-small.webp");
                 }
 
-                @include screenSize(medium) {
+                @include screen-size(medium) {
                     // background-image: url("../images/-thumbnail.webp");
                 }
 
@@ -403,7 +452,7 @@ main {
             display: grid;
             grid-template-columns: 1fr 1fr;
 
-            :is(&[data-state="expand"], &[data-state="go"]) {
+            &:is(&[data-state="expand"], &[data-state="go"]) {
                 .top-left {
                     transform: translate(calc(100vw*-.02), calc(100vw*-.04)) rotate(30deg);
                 }
@@ -482,25 +531,29 @@ footer {
     color: $orange;
 
     & div {
-        @include screenSize(small) {
-            font-size: 20px;
+        @include screen-size(small) {
             max-width: 1400px;
             padding: 10px;
         }
 
-        @include screenSize(medium) {
-            font-size: 22px;
-        }
-
-        @include screenSize(large) {
-            font-size: 27px;
+        @include screen-size(large) {
             margin: 0 auto;
         }
     }
 
-    & p {
+    & h2,
+    & h3 {
         padding: 0;
         margin: 0;
+
+        font-weight: lighter;
+        font-size: 1em;
+        @include font-size(300, 16);
+        @include font-size(480, 19);
+        @include font-size(560, 20);
+        @include font-size(692, 22);
+        @include font-size(988, 24);
+        @include font-size(1136, 27);
     }
 
     & a {

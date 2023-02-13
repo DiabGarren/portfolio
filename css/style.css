@@ -1,4 +1,5 @@
 body {
+  min-width: 300px;
   background: #151515;
   color: #ed9012;
   font-family: "Fira Code", monospace;
@@ -24,6 +25,7 @@ header div {
   max-width: 1400px;
   margin: 0 auto;
   display: grid;
+  align-items: center;
   grid-template-columns: 1fr 49px;
   grid-template-rows: 49px;
 }
@@ -36,18 +38,36 @@ header div {
 header #terminal {
   grid-column: 1;
   margin: 0;
-  padding: 0;
-  color: #ed9012;
-  font-size: 20px;
   padding: 10px;
+  color: #ed9012;
+  font-size: 1em;
+}
+@media (min-width: 300px) {
+  header #terminal {
+    font-size: 16px;
+  }
+}
+@media (min-width: 480px) {
+  header #terminal {
+    font-size: 19px;
+  }
 }
 @media (min-width: 560px) {
   header #terminal {
-    font-size: 22px;
-    padding: 10px;
+    font-size: 20px;
   }
 }
-@media (min-width: 1025px) {
+@media (min-width: 692px) {
+  header #terminal {
+    font-size: 22px;
+  }
+}
+@media (min-width: 988px) {
+  header #terminal {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1136px) {
   header #terminal {
     font-size: 27px;
   }
@@ -91,16 +111,40 @@ header .nav-btn.open .bot {
 }
 header #nav {
   grid-column: 1/3;
-  font-size: 20px;
   padding: 0 5px;
+  font-size: 1em;
 }
 @media (min-width: 560px) {
   header #nav {
-    font-size: 22px;
     padding: 0 10px;
   }
 }
-@media (min-width: 1025px) {
+@media (min-width: 300px) {
+  header #nav {
+    font-size: 16px;
+  }
+}
+@media (min-width: 480px) {
+  header #nav {
+    font-size: 19px;
+  }
+}
+@media (min-width: 560px) {
+  header #nav {
+    font-size: 20px;
+  }
+}
+@media (min-width: 692px) {
+  header #nav {
+    font-size: 22px;
+  }
+}
+@media (min-width: 988px) {
+  header #nav {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1136px) {
   header #nav {
     font-size: 27px;
   }
@@ -195,13 +239,98 @@ main #container {
   gap: 0.5em;
   justify-content: center;
 }
+main h2 {
+  font-family: "Major Mono Display", monospace;
+  padding: 0;
+  margin: 0;
+  font-weight: lighter;
+}
+main h2::selection {
+  background: #151515;
+}
 main #click {
-  grid-column: 3;
+  grid-column: 2/4;
+  text-align: right;
+  padding-right: 5px;
+}
+@media (min-width: 560px) {
+  main #click {
+    padding-right: 20px;
+  }
+}
+@media (min-width: 1025px) {
+  main #click {
+    padding-right: 30px;
+  }
+}
+@media (min-width: 300px) {
+  main #click {
+    font-size: 13px;
+  }
+}
+@media (min-width: 480px) {
+  main #click {
+    font-size: 20px;
+  }
+}
+@media (min-width: 545px) {
+  main #click {
+    font-size: 24px;
+  }
+}
+@media (min-width: 692px) {
+  main #click {
+    font-size: 28px;
+  }
+}
+@media (min-width: 988px) {
+  main #click {
+    font-size: 35px;
+  }
+}
+@media (min-width: 1136px) {
+  main #click {
+    font-size: 45px;
+  }
+}
+main #desc {
+  grid-column: 1/9;
+  justify-self: center;
+}
+@media (min-width: 300px) {
+  main #desc {
+    font-size: 16px;
+  }
+}
+@media (min-width: 545px) {
+  main #desc {
+    font-size: 24px;
+  }
+}
+@media (min-width: 692px) {
+  main #desc {
+    font-size: 32px;
+  }
+}
+@media (min-width: 840px) {
+  main #desc {
+    font-size: 40px;
+  }
+}
+@media (min-width: 988px) {
+  main #desc {
+    font-size: 48px;
+  }
+}
+@media (min-width: 1136px) {
+  main #desc {
+    font-size: 56px;
+  }
 }
 main .letter {
   text-decoration: none;
 }
-:is(main .letter[data-state=expand], main .letter[data-state=go]) {
+main .letter:is(main .letter[data-state=expand], main .letter[data-state=go]) {
   z-index: 2;
   background: white;
   border-radius: 3vw;
@@ -210,27 +339,27 @@ main .letter {
   background-position: center;
   background-size: contain;
 }
-:is(main .letter[data-state=expand], main .letter[data-state=go])#m {
+main .letter:is(main .letter[data-state=expand], main .letter[data-state=go])#m {
   background-image: url("../images/maeve-human-portfolio-thumbnail-small.webp");
 }
 @media (min-width: 560px) {
-  :is(main .letter[data-state=expand], main .letter[data-state=go])#m {
+  main .letter:is(main .letter[data-state=expand], main .letter[data-state=go])#m {
     background-image: url("../images/maeve-human-portfolio-thumbnail.webp");
   }
 }
-:is(main .letter[data-state=expand], main .letter[data-state=go])#y {
+main .letter:is(main .letter[data-state=expand], main .letter[data-state=go])#y {
   background-image: url("../images/bountiful-foods-thumbnail-small.webp");
 }
 @media (min-width: 560px) {
-  :is(main .letter[data-state=expand], main .letter[data-state=go])#y {
+  main .letter:is(main .letter[data-state=expand], main .letter[data-state=go])#y {
     background-image: url("../images/bountiful-foods-thumbnail.webp");
   }
 }
-:is(main .letter[data-state=expand], main .letter[data-state=go])#p {
+main .letter:is(main .letter[data-state=expand], main .letter[data-state=go])#p {
   background-image: url("../images/chamber-thumbnail-small.webp");
 }
 @media (min-width: 560px) {
-  :is(main .letter[data-state=expand], main .letter[data-state=go])#p {
+  main .letter:is(main .letter[data-state=expand], main .letter[data-state=go])#p {
     background-image: url("../images/chamber-thumbnail.webp");
   }
 }
@@ -238,16 +367,16 @@ main .letter-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .top-left {
+main .letter-inner:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .top-left {
   transform: translate(-2vw, -4vw) rotate(30deg);
 }
-:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .top-right {
+main .letter-inner:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .top-right {
   transform: translate(2vw, -4vw) rotate(-30deg);
 }
-:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .bot-left {
+main .letter-inner:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .bot-left {
   transform: translate(-2vw, 4vw) rotate(-30deg);
 }
-:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .bot-right {
+main .letter-inner:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .bot-right {
   transform: translate(2vw, 4vw) rotate(30deg);
 }
 main .letter#m {
@@ -297,24 +426,49 @@ footer {
   color: #ed9012;
 }
 footer div {
-  font-size: 20px;
   max-width: 1400px;
   padding: 10px;
 }
-@media (min-width: 560px) {
-  footer div {
-    font-size: 22px;
-  }
-}
 @media (min-width: 1025px) {
   footer div {
-    font-size: 27px;
     margin: 0 auto;
   }
 }
-footer p {
+footer h2, footer h3 {
   padding: 0;
   margin: 0;
+  font-weight: lighter;
+  font-size: 1em;
+}
+@media (min-width: 300px) {
+  footer h2, footer h3 {
+    font-size: 16px;
+  }
+}
+@media (min-width: 480px) {
+  footer h2, footer h3 {
+    font-size: 19px;
+  }
+}
+@media (min-width: 560px) {
+  footer h2, footer h3 {
+    font-size: 20px;
+  }
+}
+@media (min-width: 692px) {
+  footer h2, footer h3 {
+    font-size: 22px;
+  }
+}
+@media (min-width: 988px) {
+  footer h2, footer h3 {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1136px) {
+  footer h2, footer h3 {
+    font-size: 27px;
+  }
 }
 footer a {
   color: #fff;
