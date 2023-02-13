@@ -77,7 +77,7 @@ document.querySelector("#home").onmouseover = event => {
 }
 
 document.querySelector(".nav-btn").addEventListener("click", () => {
-    // document.querySelector()
+    document.querySelector(".nav-btn").classList.toggle("open");
     document.querySelector("#nav").classList.toggle("grid");
 });
 

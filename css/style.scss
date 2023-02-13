@@ -101,6 +101,9 @@ header {
     }
 
     .nav-btn {
+        @include screenSize(large) {
+            display: none;
+        }
         grid-column: 2;
         padding: 0;
         border: none;
@@ -108,6 +111,37 @@ header {
         aspect-ratio: 1/1;
         background: transparent;
         cursor: pointer;
+
+        .line {
+            transition:
+                y 200ms ease-in 200ms,
+                rotate 200ms ease-in,
+                opacity 0ms 200ms;
+            transform-origin: center;
+        }
+
+        &.open .line {
+            transition:
+                y 200ms ease-in,
+                rotate 200ms ease-in 200ms,
+                opacity 0ms 200ms;
+        }
+
+        &.open :is(.top, .bot) {
+            y: 45;
+        }
+
+        &.open .top {
+            rotate: 45deg;
+        }
+
+        &.open .mid {
+            opacity: 0;
+        }
+
+        &.open .bot {
+            rotate: -45deg;
+        }
     }
 
     #nav {
@@ -126,7 +160,14 @@ header {
         }
 
         ul {
-            display: none;
+            @include screenSize(small) {
+                display: none;
+            }
+
+            @include screenSize(large) {
+                display: grid;
+            }
+
             grid-template-columns: 1fr 1fr 1fr;
 
             margin: 0;
