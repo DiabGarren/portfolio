@@ -24,19 +24,13 @@ header div {
   max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 35px;
-  grid-template-rows: 35px;
+  grid-template-columns: 1fr 49px;
+  grid-template-rows: 49px;
 }
 @media (min-width: 560px) {
   header div {
-    grid-template-columns: 1fr 46px;
-    grid-template-rows: 46px;
-  }
-}
-@media (min-width: 1025px) {
-  header div {
-    grid-template-columns: 1fr 56px;
-    grid-template-rows: 56px;
+    grid-template-columns: 1fr 55px;
+    grid-template-rows: 55px;
   }
 }
 header #terminal {
@@ -44,12 +38,12 @@ header #terminal {
   margin: 0;
   padding: 0;
   color: #ed9012;
-  font-size: 16px;
-  padding: 5px;
+  font-size: 20px;
+  padding: 10px;
 }
 @media (min-width: 560px) {
   header #terminal {
-    font-size: 20px;
+    font-size: 22px;
     padding: 10px;
   }
 }
@@ -97,11 +91,13 @@ header .nav-btn.open .bot {
 }
 header #nav {
   grid-column: 1/3;
-  font-size: 16px;
+  font-size: 20px;
+  padding: 0 5px;
 }
 @media (min-width: 560px) {
   header #nav {
-    font-size: 20px;
+    font-size: 22px;
+    padding: 0 10px;
   }
 }
 @media (min-width: 1025px) {
@@ -111,30 +107,54 @@ header #nav {
 }
 header #nav ul {
   display: none;
-  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
   margin: 0;
   padding: 0;
-  text-align: center;
+}
+@media (min-width: 560px) {
+  header #nav ul {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 @media (min-width: 1025px) {
   header #nav ul {
+    text-align: left;
+    display: block;
+  }
+}
+header #nav.visible ul {
+  display: block;
+}
+@media (min-width: 560px) {
+  header #nav.visible ul {
     display: grid;
   }
 }
-header #nav.grid ul {
-  display: grid;
+@media (min-width: 1025px) {
+  header #nav.visible ul {
+    display: block;
+  }
 }
-header #nav li {
-  display: inline-block;
+@media (min-width: 560px) {
+  header #nav li {
+    display: inline-block;
+  }
 }
 header #nav a {
   display: block;
   text-decoration: none;
   transition: 0.5s;
+  padding: 10px;
   border-bottom: 2px solid transparent;
+}
+@media (min-width: 560px) {
+  header #nav a {
+    padding: 5px;
+  }
 }
 @media (min-width: 1025px) {
   header #nav a {
+    padding: 2px 50px;
     border-bottom: 3px solid transparent;
   }
 }
@@ -277,13 +297,13 @@ footer {
   color: #ed9012;
 }
 footer div {
+  font-size: 20px;
   max-width: 1400px;
-  padding: 5px;
+  padding: 10px;
 }
 @media (min-width: 560px) {
   footer div {
-    font-size: 20px;
-    padding: 10px;
+    font-size: 22px;
   }
 }
 @media (min-width: 1025px) {

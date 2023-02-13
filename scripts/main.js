@@ -78,7 +78,7 @@ document.querySelector("#home").onmouseover = event => {
 
 document.querySelector(".nav-btn").addEventListener("click", () => {
     document.querySelector(".nav-btn").classList.toggle("open");
-    document.querySelector("#nav").classList.toggle("grid");
+    document.querySelector("#nav").classList.toggle("visible");
 });
 
 if(document.querySelector(letters[0]) != null) {

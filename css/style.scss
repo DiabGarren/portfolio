@@ -58,18 +58,13 @@ header {
         display: grid;
 
         @include screenSize(small) {
-            grid-template-columns: 1fr 35px;
-            grid-template-rows: 35px;
+            grid-template-columns: 1fr 49px;
+            grid-template-rows: 49px;
         }
 
         @include screenSize(medium) {
-            grid-template-columns: 1fr 46px;
-            grid-template-rows: 46px;
-        }
-
-        @include screenSize(large) {
-            grid-template-columns: 1fr 56px;
-            grid-template-rows: 56px;
+            grid-template-columns: 1fr 55px;
+            grid-template-rows: 55px;
         }
     }
 
@@ -81,12 +76,12 @@ header {
         color: $orange;
 
         @include screenSize(small) {
-            font-size: 16px;
-            padding: 5px;
+            font-size: 20px;
+            padding: 10px;
         }
 
         @include screenSize(medium) {
-            font-size: 20px;
+            font-size: 22px;
             padding: 10px;
         }
 
@@ -101,9 +96,6 @@ header {
     }
 
     .nav-btn {
-        @include screenSize(large) {
-            display: none;
-        }
         grid-column: 2;
         padding: 0;
         border: none;
@@ -111,6 +103,10 @@ header {
         aspect-ratio: 1/1;
         background: transparent;
         cursor: pointer;
+
+        @include screenSize(large) {
+            display: none;
+        }
 
         .line {
             transition:
@@ -148,11 +144,13 @@ header {
         grid-column: 1/3;
 
         @include screenSize(small) {
-            font-size: 16px;
-        }
-
-        @include screenSize(medium) {
             font-size: 20px;
+            padding: 0 5px;
+        }
+        
+        @include screenSize(medium) {
+            font-size: 22px;
+            padding: 0 10px;
         }
 
         @include screenSize(large) {
@@ -162,29 +160,43 @@ header {
         ul {
             @include screenSize(small) {
                 display: none;
+                text-align: center;
+            }
+
+            @include screenSize(medium) {
+
+                grid-template-columns: 1fr 1fr 1fr;
             }
 
             @include screenSize(large) {
-                display: grid;
+                text-align: left;
+                display: block;
             }
-
-            grid-template-columns: 1fr 1fr 1fr;
 
             margin: 0;
             padding: 0;
-
-            text-align: center;
-
         }
 
-        &.grid {
+        &.visible {
             ul {
-                display: grid;
+                @include screenSize(small) {
+                    display: block;
+                }
+
+                @include screenSize(medium) {
+                    display: grid;
+                }
+
+                @include screenSize(large) {
+                    display: block;
+                }
             }
         }
 
         li {
-            display: inline-block;
+            @include screenSize(medium) {
+                display: inline-block;
+            }
         }
 
         a {
@@ -193,10 +205,16 @@ header {
             transition: .5s;
 
             @include screenSize(small) {
+                padding: 10px;
                 border-bottom: 2px solid transparent;
             }
 
+            @include screenSize(medium) {
+                padding: 5px;
+            }
+
             @include screenSize(large) {
+                padding: 2px 50px;
                 border-bottom: 3px solid transparent;
             }
         }
@@ -465,13 +483,13 @@ footer {
 
     & div {
         @include screenSize(small) {
+            font-size: 20px;
             max-width: 1400px;
-            padding: 5px;
+            padding: 10px;
         }
 
         @include screenSize(medium) {
-            font-size: 20px;
-            padding: 10px;
+            font-size: 22px;
         }
 
         @include screenSize(large) {
