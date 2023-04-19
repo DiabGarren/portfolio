@@ -363,6 +363,14 @@ main .letter:is(main .letter[data-state=expand], main .letter[data-state=go])#p 
     background-image: url("../images/chamber-thumbnail.webp");
   }
 }
+main .letter:is(main .letter[data-state=expand], main .letter[data-state=go])#r {
+  background-image: url("../images/techtroll-thumbnail-small.webp");
+}
+@media (min-width: 560px) {
+  main .letter:is(main .letter[data-state=expand], main .letter[data-state=go])#r {
+    background-image: url("../images/techtroll-thumbnail.webp");
+  }
+}
 main .letter-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;

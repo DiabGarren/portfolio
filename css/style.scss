@@ -372,11 +372,11 @@ main {
 
             &#r {
                 @include screen-size(small) {
-                    // background-image: url("../images/-thumbnail-small.webp");
+                    background-image: url("../images/techtroll-thumbnail-small.webp");
                 }
 
                 @include screen-size(medium) {
-                    // background-image: url("../images/-thumbnail.webp");
+                    background-image: url("../images/techtroll-thumbnail.webp");
                 }
 
             }
