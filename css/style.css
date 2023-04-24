@@ -371,6 +371,14 @@ main .letter:is(main .letter[data-state=expand], main .letter[data-state=go])#r 
     background-image: url("../images/techtroll-thumbnail.webp");
   }
 }
+main .letter:is(main .letter[data-state=expand], main .letter[data-state=go])#o {
+  background-image: url("../images/motors-thumbnail-small.webp");
+}
+@media (min-width: 560px) {
+  main .letter:is(main .letter[data-state=expand], main .letter[data-state=go])#o {
+    background-image: url("../images/motors-thumbnail.webp");
+  }
+}
 main .letter-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
