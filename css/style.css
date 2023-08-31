@@ -5,21 +5,26 @@ body {
   font-family: "Fira Code", monospace;
   margin: 0;
 }
-body img {
+body img, body svg {
   transition: 0.5s;
   width: 100%;
+  height: 100%;
+}
+body svg path {
+  fill: #84bffa;
+  transition: 0.5s;
 }
 body a {
-  color: #ed9012;
+  color: white;
 }
 
 ::selection {
   background: #0f0e0e;
-  color: #ed9012;
+  color: #1b4774;
 }
 
 header {
-  background: #0f0e0e;
+  background: #03294c;
 }
 header div {
   max-width: 1400px;
@@ -39,7 +44,7 @@ header #terminal {
   grid-column: 1;
   margin: 0;
   padding: 10px;
-  color: #ed9012;
+  color: white;
   font-size: 1em;
 }
 @media (min-width: 300px) {
@@ -203,18 +208,25 @@ header #nav a {
   }
 }
 header #nav a:hover {
-  border-bottom: 2px solid #ed9012;
+  border-bottom: 2px solid #84bffa;
 }
 @media (min-width: 1025px) {
   header #nav a:hover {
-    border-bottom: 3px solid #ed9012;
+    border-bottom: 3px solid #84bffa;
   }
 }
 header #nav .active {
-  background: #ed9012;
-  color: #0f0e0e;
-  border-radius: 10px;
-  box-shadow: 0 0 5px 1px #ed9012, 0 0 8px 3px #ac6a0c, 0 0 10px 5px #6d4308;
+  background: #84bffa;
+  color: #03294c;
+  border-radius: 10px 10px 0 0;
+}
+header #nav .active:hover {
+  border-bottom: 2px solid #03294c;
+}
+@media (min-width: 1025px) {
+  header #nav .active:hover {
+    border-bottom: 3px solid #03294c;
+  }
 }
 header #nav #home {
   grid-column: 1;
@@ -244,6 +256,7 @@ main h2 {
   padding: 0;
   margin: 0;
   font-weight: lighter;
+  color: #84bffa;
 }
 main h2::selection {
   background: #151515;
@@ -386,14 +399,26 @@ main .letter-inner {
 main .letter-inner:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .top-left {
   transform: translate(-2vw, -4vw) rotate(30deg);
 }
+main .letter-inner:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .top-left path {
+  d: path("M86 10V0H75C75 0 46.5 1 24 25.5C-1.166 52.903 0.999992 77 0.999992 77V107H12V79C12 79 10.5 57 32.5 33C54.5 9.00001 80 10 80 10H86Z");
+}
 main .letter-inner:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .top-right {
   transform: translate(2vw, -4vw) rotate(-30deg);
+}
+main .letter-inner:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .top-right path {
+  d: path("M0 10V0H11C11 0 39.5 1 62 25.5C87.166 52.903 85 77 85 77V107H74V79C74 79 75.5 57 53.5 33C31.5 9.00001 6.00001 10 6.00001 10H0Z");
 }
 main .letter-inner:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .bot-left {
   transform: translate(-2vw, 4vw) rotate(-30deg);
 }
+main .letter-inner:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .bot-left path {
+  d: path("M85.0467 97V107H74.0467C74.0467 107 45.5467 106 23.0467 81.5C-2.11928 54.097 0.046714 30 0.046714 30V7.62939e-06H11.0467V28C11.0467 28 9.54671 50 31.5467 74C53.5467 98 79.0467 97 79.0467 97H85.0467Z");
+}
 main .letter-inner:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .bot-right {
   transform: translate(2vw, 4vw) rotate(30deg);
+}
+main .letter-inner:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .bot-right path {
+  d: path("M0 97V107H11C11 107 39.5 106 62 81.5C87.166 54.097 85 30 85 30V7.62939e-06H74V28C74 28 75.5 50 53.5 74C31.5 98 6.00001 97 6.00001 97H0Z");
 }
 main .letter#m {
   grid-column: 4;
@@ -443,8 +468,8 @@ main .letter#s {
 
 footer {
   width: 100%;
-  background-color: #0f0e0e;
-  color: #ed9012;
+  background-color: #03294c;
+  color: #84bffa;
 }
 footer div {
   max-width: 1400px;
@@ -498,7 +523,7 @@ footer a {
 footer a:hover {
   text-decoration: underline;
   color: #151515;
-  background-color: #ed9012;
+  background-color: #84bffa;
 }
 
 @keyframes typing-blink {

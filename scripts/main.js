@@ -123,6 +123,27 @@ if (document.querySelector(letters[0]) != null) {
                     event.target.parentNode.parentNode.dataset.state = "close";
                 }
                 break;
+
+            case "top-left-inner":
+            case "top-right-inner":
+            case "bot-left-inner":
+            case "bot-right-inner":
+                if (action == "next") {
+                    switch (event.target.parentNode.parentNode.dataset.state, event.target.parentNode.parentNode.parentNode.dataset.state) {
+                        case "close":
+                            event.target.parentNode.parentNode.dataset.state = "expand";
+                            event.target.parentNode.parentNode.parentNode.dataset.state = "expand";
+                            break;
+                        case "expand":
+                            event.target.parentNode.parentNode.dataset.state = "go";
+                            event.target.parentNode.parentNode.parentNode.dataset.state = "go";
+                            break;
+                    }
+                } else if (action == "prev") {
+                    event.target.parentNode.parentNode.dataset.state = "close";
+                    event.target.parentNode.parentNode.parentNode.dataset.state = "close";
+                }
+                break;
         }
     }
 

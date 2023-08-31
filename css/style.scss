@@ -1,8 +1,13 @@
 $main-bg: #151515;
 $element-bg: #0f0e0e;
+$header-bg: #03294c;
 $orange: #ed9012;
 $orange-faded: #ac6a0c;
 $orange-faded2: #6d4308;
+
+$dark-blue: #03294c;
+$dark-blue2: #1b4774;
+$light-blue: #84bffa;
 
 $block-width: minmax(30px, 190px);
 
@@ -41,23 +46,31 @@ body {
     font-family: 'Fira Code', monospace;
     margin: 0;
 
-    img {
+    img, svg {
         transition: .5s;
         width: 100%;
+        height: 100%;
+    }
+
+    svg {
+        path {
+            fill: $light-blue;
+            transition: .5s;
+        }
     }
 
     a {
-        color: $orange;
+        color: white;
     }
 }
 
 ::selection {
     background: $element-bg;
-    color: $orange;
+    color: $dark-blue2;
 }
 
 header {
-    background: $element-bg;
+    background: $header-bg;
 
     div {
         max-width: 1400px;
@@ -81,7 +94,7 @@ header {
 
         margin: 0;
         padding: 10px;
-        color: $orange;
+        color: white;
 
         font-size: 1em;
         @include font-size(300, 16);
@@ -225,23 +238,29 @@ header {
 
         a:hover {
             @include screen-size(small) {
-                border-bottom: 2px solid $orange;
+                border-bottom: 2px solid $light-blue;
             }
 
             @include screen-size(large) {
-                border-bottom: 3px solid $orange;
+                border-bottom: 3px solid $light-blue;
             }
         }
 
         .active {
-            background: $orange;
-            color: $element-bg;
+            background: $light-blue;
+            color: $dark-blue;
 
-            border-radius: 10px;
+            border-radius: 10px 10px 0 0;
 
-            box-shadow: 0 0 5px 1px $orange,
-                0 0 8px 3px $orange-faded,
-                0 0 10px 5px $orange-faded2;
+            &:hover {
+                @include screen-size(small) {
+                    border-bottom: 2px solid $dark-blue;
+                }
+    
+                @include screen-size(large) {
+                    border-bottom: 3px solid $dark-blue;
+                }
+            }
         }
 
         #home {
@@ -281,6 +300,7 @@ main {
 
         font-weight: lighter;
 
+        color: $light-blue;
         &::selection {
             background: $main-bg;
         }
@@ -455,18 +475,30 @@ main {
             &:is(&[data-state="expand"], &[data-state="go"]) {
                 .top-left {
                     transform: translate(calc(100vw*-.02), calc(100vw*-.04)) rotate(30deg);
+                    path {
+                        d: path("M86 10V0H75C75 0 47.9702 0 23.2583 25.5C0 49.5 -1.52588e-05 77 -1.52588e-05 77L0.000500031 107H11V79C11 79 12 54.0763 32 32.5C52 10.9237 80 10 80 10H86Z");
+                    }
                 }
 
                 .top-right {
                     transform: translate(calc(100vw*.02), calc(100vw*-.04)) rotate(-30deg);
+                    path {
+                        d: path("M0 10V0H11C11 0 38.0298 0 62.7417 25.5C86 49.5 86 77 86 77L85.9995 107H75V79C75 79 74 54.0763 54 32.5C34 10.9237 6 10 6 10H0Z");
+                    }
                 }
 
                 .bot-left {
                     transform: translate(calc(100vw*-.02), calc(100vw*.04)) rotate(-30deg);
+                    path {
+                        d: path("M86 97V107H75C75 107 47.9703 107 23.2583 81.5C1.52588e-05 57.5 0 30 0 30L0.00051529 7.62939e-06H11V28C11 28 12 52.9237 32 74.5C52 96.0763 80 97 80 97H86Z");
+                    }
                 }
 
                 .bot-right {
                     transform: translate(calc(100vw*.02), calc(100vw*.04)) rotate(30deg);
+                    path {
+                        d: path("M0 97V107H11C11 107 38.0298 107 62.7417 81.5C86 57.5 86 30 86 30L85.9995 7.62939e-06H75V28C75 28 74 52.9237 54 74.5C34 96.0763 6 97 6 97H0Z");
+                    }
                 }
             }
 
@@ -532,8 +564,8 @@ main {
 
 footer {
     width: 100%;
-    background-color: $element-bg;
-    color: $orange;
+    background-color: $header-bg;
+    color: $light-blue;
 
     & div {
         @include screen-size(small) {
@@ -568,7 +600,7 @@ footer {
         &:hover {
             text-decoration: underline;
             color: #151515;
-            background-color: $orange;
+            background-color: $light-blue;
         }
     }
 }
