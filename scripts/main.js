@@ -8,37 +8,6 @@ const wait = (milliseconds) => {
     });
 };
 
-async function loadLetters(letterContainer) {
-    let length = letterContainer.length - 1;
-
-    while (true) {
-        for (let i = 0; i < length; i += 2) {
-            await wait(Math.floor(Math.random() * (100 - 50 + 1) + 50));
-            for (let j = 0; j < positions.length; j++) {
-                document.querySelector(letterContainer[i]).children[0].children[j].setAttribute("src", `images/letters/${letterContainer[i][1]}-${positions[j]}.webp`);
-                await wait(Math.floor(Math.random() * (75 - 25 + 1) + 25));
-                document.querySelector(letterContainer[length - i]).children[0].children[3 - j].setAttribute("src", `images/letters/${letterContainer[length - i][1]}-${positions[3 - j]}.webp`);
-                await wait(Math.floor(Math.random() * (50 - 25 + 1) + 25));
-            }
-        }
-
-        await wait(2 * 60_000);
-
-        for (let i = 0; i < length; i += 2) {
-            await wait(250);
-            for (let j = 0; j < positions.length; j++) {
-                document.querySelector(letterContainer[i]).children[0].children[j].setAttribute("src", `images/placeholder.webp`);
-                await wait(Math.floor(Math.random() * (75 - 25 + 1) + 25));
-                document.querySelector(letterContainer[length - i]).children[0].children[3 - j].setAttribute("src", `images/placeholder.webp`);
-                await wait(Math.floor(Math.random() * (100 - 50 + 1) + 50));
-            }
-        }
-
-        await wait(750);
-    }
-
-};
-
 function fillText(event) {
     let iterations = 0;
 
@@ -82,7 +51,6 @@ document.querySelector(".nav-btn").addEventListener("click", () => {
 });
 
 if (document.querySelector(letters[0]) != null) {
-    loadLetters(letters);
 
     function letterAction(event, action) {
         switch (event.target.classList.value) {
