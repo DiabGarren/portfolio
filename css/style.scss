@@ -42,11 +42,11 @@ $medium-break: 560px;
 body {
     min-width: 300px;
     background: $main-bg;
-    color: $orange;
+    color: $light-blue;
     font-family: 'Fira Code', monospace;
     margin: 0;
 
-    img, svg {
+    svg {
         transition: .5s;
         width: 100%;
         height: 100%;
@@ -182,7 +182,7 @@ header {
 
             @include screen-size(medium) {
 
-                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
             }
 
             @include screen-size(large) {
@@ -197,7 +197,11 @@ header {
         &.visible {
             ul {
                 @include screen-size(small) {
+                    position: absolute;
                     display: block;
+                    background: $dark-blue;
+                    width: 100%;
+                    left: 0;
                 }
 
                 @include screen-size(medium) {
@@ -250,13 +254,18 @@ header {
             background: $light-blue;
             color: $dark-blue;
 
-            border-radius: 10px 10px 0 0;
+            @include screen-size(small) {
+                border-radius: 0;
+
+            } @include screen-size(medium) {
+                border-radius: 10px 10px 0 0;
+            }
 
             &:hover {
                 @include screen-size(small) {
                     border-bottom: 2px solid $dark-blue;
                 }
-    
+
                 @include screen-size(large) {
                     border-bottom: 3px solid $dark-blue;
                 }
@@ -274,6 +283,10 @@ header {
         #resume {
             grid-column: 3;
         }
+
+        #certificates {
+            grid-column: 4;
+        }
     }
 }
 
@@ -282,7 +295,17 @@ main {
     margin: 0 auto;
 
     &>div {
-        margin: 50px;
+        @include screen-size(small) {
+            margin: 50px 10px 10px 10px;
+        }
+
+        @include screen-size(medium) {
+            margin: 50px 30px 30px 30px;
+        }
+
+        @include screen-size(large) {
+            margin: 50px;
+        }
     }
 
     #container {
@@ -301,6 +324,7 @@ main {
         font-weight: lighter;
 
         color: $light-blue;
+
         &::selection {
             background: $main-bg;
         }
@@ -475,6 +499,7 @@ main {
             &:is(&[data-state="expand"], &[data-state="go"]) {
                 .top-left {
                     transform: translate(calc(100vw*-.02), calc(100vw*-.04)) rotate(30deg);
+
                     path {
                         d: path("M86 10V0H75C75 0 47.9702 0 23.2583 25.5C0 49.5 -1.52588e-05 77 -1.52588e-05 77L0.000500031 107H11V79C11 79 12 54.0763 32 32.5C52 10.9237 80 10 80 10H86Z");
                     }
@@ -482,6 +507,7 @@ main {
 
                 .top-right {
                     transform: translate(calc(100vw*.02), calc(100vw*-.04)) rotate(-30deg);
+
                     path {
                         d: path("M0 10V0H11C11 0 38.0298 0 62.7417 25.5C86 49.5 86 77 86 77L85.9995 107H75V79C75 79 74 54.0763 54 32.5C34 10.9237 6 10 6 10H0Z");
                     }
@@ -489,6 +515,7 @@ main {
 
                 .bot-left {
                     transform: translate(calc(100vw*-.02), calc(100vw*.04)) rotate(-30deg);
+
                     path {
                         d: path("M86 97V107H75C75 107 47.9703 107 23.2583 81.5C1.52588e-05 57.5 0 30 0 30L0.00051529 7.62939e-06H11V28C11 28 12 52.9237 32 74.5C52 96.0763 80 97 80 97H86Z");
                     }
@@ -496,6 +523,7 @@ main {
 
                 .bot-right {
                     transform: translate(calc(100vw*.02), calc(100vw*.04)) rotate(30deg);
+
                     path {
                         d: path("M0 97V107H11C11 107 38.0298 107 62.7417 81.5C86 57.5 86 30 86 30L85.9995 7.62939e-06H75V28C75 28 74 52.9237 54 74.5C34 96.0763 6 97 6 97H0Z");
                     }
@@ -558,8 +586,20 @@ main {
 }
 
 .document {
-    width: 100%;
-    height: 85vh;
+    @include screen-size(small) {
+        width: 100%;
+    }
+
+    @include screen-size(medium) {
+        display: block;
+        margin: auto;
+    }
+
+    @include screen-size(large) {
+        display: block;
+        margin: auto;
+        width: 75%;
+    }
 }
 
 footer {

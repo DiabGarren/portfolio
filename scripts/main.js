@@ -44,6 +44,9 @@ document.querySelector("#resume").onmouseover = event => {
 document.querySelector("#home").onmouseover = event => {
     fillText(event);
 }
+document.querySelector("#certificates").onmouseover = event => {
+    fillText(event);
+}
 
 document.querySelector(".nav-btn").addEventListener("click", () => {
     document.querySelector(".nav-btn").classList.toggle("open");

@@ -1,11 +1,11 @@
 body {
   min-width: 300px;
   background: #151515;
-  color: #ed9012;
+  color: #84bffa;
   font-family: "Fira Code", monospace;
   margin: 0;
 }
-body img, body svg {
+body svg {
   transition: 0.5s;
   width: 100%;
   height: 100%;
@@ -162,7 +162,7 @@ header #nav ul {
 }
 @media (min-width: 560px) {
   header #nav ul {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 @media (min-width: 1025px) {
@@ -172,7 +172,11 @@ header #nav ul {
   }
 }
 header #nav.visible ul {
+  position: absolute;
   display: block;
+  background: #03294c;
+  width: 100%;
+  left: 0;
 }
 @media (min-width: 560px) {
   header #nav.visible ul {
@@ -218,7 +222,12 @@ header #nav a:hover {
 header #nav .active {
   background: #84bffa;
   color: #03294c;
-  border-radius: 10px 10px 0 0;
+  border-radius: 0;
+}
+@media (min-width: 560px) {
+  header #nav .active {
+    border-radius: 10px 10px 0 0;
+  }
 }
 header #nav .active:hover {
   border-bottom: 2px solid #03294c;
@@ -237,13 +246,26 @@ header #nav #transcript {
 header #nav #resume {
   grid-column: 3;
 }
+header #nav #certificates {
+  grid-column: 4;
+}
 
 main {
   max-width: 1400px;
   margin: 0 auto;
 }
 main > div {
-  margin: 50px;
+  margin: 50px 10px 10px 10px;
+}
+@media (min-width: 560px) {
+  main > div {
+    margin: 50px 30px 30px 30px;
+  }
+}
+@media (min-width: 1025px) {
+  main > div {
+    margin: 50px;
+  }
 }
 main #container {
   display: grid;
@@ -400,25 +422,25 @@ main .letter-inner:is(main .letter-inner[data-state=expand], main .letter-inner[
   transform: translate(-2vw, -4vw) rotate(30deg);
 }
 main .letter-inner:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .top-left path {
-  d: path("M86 10V0H75C75 0 46.5 1 24 25.5C-1.166 52.903 0.999992 77 0.999992 77V107H12V79C12 79 10.5 57 32.5 33C54.5 9.00001 80 10 80 10H86Z");
+  d: path("M86 10V0H75C75 0 47.9702 0 23.2583 25.5C0 49.5 -1.52588e-05 77 -1.52588e-05 77L0.000500031 107H11V79C11 79 12 54.0763 32 32.5C52 10.9237 80 10 80 10H86Z");
 }
 main .letter-inner:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .top-right {
   transform: translate(2vw, -4vw) rotate(-30deg);
 }
 main .letter-inner:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .top-right path {
-  d: path("M0 10V0H11C11 0 39.5 1 62 25.5C87.166 52.903 85 77 85 77V107H74V79C74 79 75.5 57 53.5 33C31.5 9.00001 6.00001 10 6.00001 10H0Z");
+  d: path("M0 10V0H11C11 0 38.0298 0 62.7417 25.5C86 49.5 86 77 86 77L85.9995 107H75V79C75 79 74 54.0763 54 32.5C34 10.9237 6 10 6 10H0Z");
 }
 main .letter-inner:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .bot-left {
   transform: translate(-2vw, 4vw) rotate(-30deg);
 }
 main .letter-inner:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .bot-left path {
-  d: path("M85.0467 97V107H74.0467C74.0467 107 45.5467 106 23.0467 81.5C-2.11928 54.097 0.046714 30 0.046714 30V7.62939e-06H11.0467V28C11.0467 28 9.54671 50 31.5467 74C53.5467 98 79.0467 97 79.0467 97H85.0467Z");
+  d: path("M86 97V107H75C75 107 47.9703 107 23.2583 81.5C1.52588e-05 57.5 0 30 0 30L0.00051529 7.62939e-06H11V28C11 28 12 52.9237 32 74.5C52 96.0763 80 97 80 97H86Z");
 }
 main .letter-inner:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .bot-right {
   transform: translate(2vw, 4vw) rotate(30deg);
 }
 main .letter-inner:is(main .letter-inner[data-state=expand], main .letter-inner[data-state=go]) .bot-right path {
-  d: path("M0 97V107H11C11 107 39.5 106 62 81.5C87.166 54.097 85 30 85 30V7.62939e-06H74V28C74 28 75.5 50 53.5 74C31.5 98 6.00001 97 6.00001 97H0Z");
+  d: path("M0 97V107H11C11 107 38.0298 107 62.7417 81.5C86 57.5 86 30 86 30L85.9995 7.62939e-06H75V28C75 28 74 52.9237 54 74.5C34 96.0763 6 97 6 97H0Z");
 }
 main .letter#m {
   grid-column: 4;
@@ -463,7 +485,19 @@ main .letter#s {
 
 .document {
   width: 100%;
-  height: 85vh;
+}
+@media (min-width: 560px) {
+  .document {
+    display: block;
+    margin: auto;
+  }
+}
+@media (min-width: 1025px) {
+  .document {
+    display: block;
+    margin: auto;
+    width: 75%;
+  }
 }
 
 footer {
